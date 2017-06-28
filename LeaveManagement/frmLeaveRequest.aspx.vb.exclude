@@ -1,0 +1,325 @@
+﻿Imports System
+Imports System.Data
+Imports System.Data.SqlClient
+Imports System.Data.OleDb
+Imports System.Data.Common
+Imports System.IO
+Imports System.Math
+Imports System.Configuration
+Imports System.Web.UI
+Partial Class LeaveManagement_frmLeaveRequest
+    Inherits System.Web.UI.Page
+
+    Dim LeaveRequestData As New clsLeaveRequestDataAccess()
+
+    Protected Sub btnSubmit_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnSubmit.Click
+        Dim LeaveRequest As New clsLeaveRequest()
+
+        Dim EmployeeID As String
+        Dim EntryByID As String
+        EmployeeID = Session("EmployeeID")
+        EntryByID = Session("LoginUserID")
+
+        LeaveRequest.LeaveTypeID = ddlLeaveType.SelectedValue
+        LeaveRequest.EmergencyAddress = txtAddress.Text
+        LeaveRequest.EmergencyContactNo = txtPhoneNo.Text
+        LeaveRequest.EmergencyMailAddress = txtEmail.Text
+        LeaveRequest.ApproverID = lblApproverID.Text
+        LeaveRequest.RecommenderID = lblRecommenderID.Text
+        'LeaveRequest.PurposeOfLeave = txtPurpose.Text
+        LeaveRequest.EntryBy = EntryByID
+
+        Dim FromDateToDateInfo As String = ""
+        Dim isoFromDateToDateParts As String = ""
+
+        Dim dtDateTimeInfo As DataTable = New DataTable()
+        dtDateTimeInfo = Session("DateTimeInfo")
+
+        Dim LeveReq As New clsLeaveRequest()
+        For Each rw As DataRow In dtDateTimeInfo.Rows
+            LeveReq.LeaveFrom = rw.Item("LeaveFrom")
+            LeveReq.LeaveTo = rw.Item("LeaveTo")
+            LeveReq.TotalDays = rw.Item("TotalDays")
+            LeveReq.InBetweenHolidays = rw.Item("TotalWorkingDays")
+            LeveReq.PurposeOfLeave = rw.Item("PurposeOfLeave")
+
+            isoFromDateToDateParts = isoFromDateToDateParts & LeveReq.LeaveFrom & "~" & LeveReq.LeaveTo & "~" & LeveReq.TotalDays & "~" & LeveReq.InBetweenHolidays & "~" & LeveReq.PurposeOfLeave & "~|"
+        Next
+
+        Dim check As Integer = LeaveRequestData.fnInsertLeaveRequest(EmployeeID, LeaveRequest, isoFromDateToDateParts)
+
+        If check = 1 Then
+            MessageBox("Submitted Successfully.")
+            ClearLeaveRequest()
+            dtDateTimeInfo.Reset()
+            grdCertification.DataSource = dtDateTimeInfo
+            grdCertification.DataBind()
+
+            'clsLeaveRequestDataAccess.SendEMail(EmployeeID, "Request")
+
+        Else
+            MessageBox("Error Found.")
+        End If
+    End Sub
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Session("UserName") = "" Or Session("UniqueUserID") = "" Then
+            Response.Redirect("~/frmHRMLogin.aspx")
+        End If
+
+        If Not IsPostBack Then
+            idLabel.Visible = False
+            Dim EmployeeID As String = ""
+            Dim EntryByID As String = ""
+            Dim Approver As String = ""
+            Dim ApproverID As String = ""
+            Dim Recommender As String = ""
+            Dim RecommenderID As String = ""
+            Dim TotalLeave As Integer = 0
+            Dim LeaveTaken As Integer = 0
+
+            EmployeeID = Session("EmployeeID")
+
+            Dim dtDateTimeInfo As DataTable = New DataTable()
+            dtDateTimeInfo = FormatDateTimeInfo()
+            Session("DateTimeInfo") = dtDateTimeInfo
+
+            Dim Flag As Integer = LeaveRequestData.fnGetLeaveBalance(EmployeeID, TotalLeave, LeaveTaken)
+            If Flag = 1 Then
+                lblTLeveCnt.Text = TotalLeave
+                lblLeveTknCnt.Text = LeaveTaken
+                lblBlceCnt.Text = TotalLeave - LeaveTaken
+            End If
+
+            Dim Check As Integer = LeaveRequestData.fnGetApproverRecommender(EmployeeID, Approver, ApproverID, Recommender, RecommenderID)
+
+            If Check = 1 Then
+                lblApprover.Text = Approver
+                lblApproverID.Text = ApproverID
+                lblRecommender.Text = Recommender
+                lblRecommenderID.Text = RecommenderID
+            End If
+
+            EntryByID = Session("LoginUserID")
+            GetLeaveType()
+
+            btnSubmit.Enabled = False
+            btnClear.Enabled = False
+        End If
+    End Sub
+
+    Private Sub MessageBox(ByVal strMsg As String)
+        Dim lbl As New System.Web.UI.WebControls.Label
+        lbl.Text = "<script language='javascript'>" & Environment.NewLine _
+                   & "window.alert(" & "'" & strMsg & "'" & ")</script>"
+        Page.Controls.Add(lbl)
+    End Sub
+
+    Protected Sub GetLeaveType()
+        Dim EmployeeID As String = ""
+        EmployeeID = Session("EmployeeID")
+        ddlLeaveType.DataTextField = "LeaveType"
+        ddlLeaveType.DataValueField = "LeaveTypeID"
+        ddlLeaveType.DataSource = LeaveRequestData.fnGetLeaveTypeGenderWise(EmployeeID)
+        ddlLeaveType.DataBind()
+    End Sub
+
+    Protected Sub btnCalWorkDay_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCalWorkDay.Click
+        Dim DateFrom, DateTo As Date
+        Dim TotalHoliday, LeaveDays, TotalApplied As Integer
+        DateFrom = dtDateFrom.Text
+        DateTo = dtDateTo.Text
+
+        Dim Check As Integer = LeaveRequestData.fnGetCalcucationWorkingDay(DateFrom, DateTo, TotalHoliday, LeaveDays, TotalApplied)
+
+        If Check = 1 Then
+            lblWorkDycnt.Text = LeaveDays
+            lblHlidayCnt.Text = TotalHoliday
+            lblTAplidcnt.Text = TotalApplied
+
+            btnSubmit.Enabled = True
+            btnClear.Enabled = True
+
+            If DateFrom >= DateTo Then
+                MessageBox("Date from can not greater than date To")
+                Exit Sub
+            End If
+
+            'If ddlLeaveType.SelectedItem.Text = "Annual Leave" Then
+            '    If Convert.ToInt16(lblBlceCnt.Text) < Convert.ToInt16(LeaveDays) Then
+            '        MessageBox("Your leave taken days is larger than your left balance")
+            '        Exit Sub
+            '    End If
+            'End If
+
+
+            'If ddlLeaveType.SelectedItem.Text = "Annual Leave" Then
+            '    If lblBlceCnt.Text = "0" Then
+            '        MessageBox("You can not take annual leave as you have 0 balance")
+            '        Exit Sub
+            '    End If
+            'End If
+
+
+            Dim LeaveRequest As New clsLeaveRequest()
+
+            LeaveRequest.LeaveFrom = dtDateFrom.Text
+            LeaveRequest.LeaveTo = dtDateTo.Text
+            LeaveRequest.TotalDays = lblTAplidcnt.Text
+            LeaveRequest.InBetweenHolidays = lblWorkDycnt.Text
+            LeaveRequest.PurposeOfLeave = txtPurpose.Text
+
+            Dim dt As DataTable = GetDateTimeData(LeaveRequest)
+
+            If lblMsg.Text = "" Then
+                Session("DateTimeInfo") = dt
+                'grdCertification.DataSource = dt
+            End If
+
+            grdCertification.DataSource = Session("DateTimeInfo")
+            grdCertification.DataBind()
+            ClearDateTimeData()
+
+        Else
+            btnSubmit.Enabled = False
+            btnClear.Enabled = False
+            dtDateFrom.Enabled = True
+            dtDateTo.Enabled = True
+            btnCalWorkDay.Enabled = True
+        End If
+    End Sub
+
+    Protected Sub ClearLeaveRequest()
+        ddlLeaveType.SelectedIndex = 0
+        dtDateFrom.Text = ""
+        dtDateTo.Text = ""
+        txtAddress.Text = ""
+        txtEmail.Text = ""
+        txtPhoneNo.Text = ""
+        txtPurpose.Text = ""
+        lblTAplidcnt.Text = ""
+        lblWorkDycnt.Text = ""
+        lblHlidayCnt.Text = ""
+        dtDateFrom.Enabled = True
+        dtDateTo.Enabled = True
+        btnSubmit.Enabled = False
+        btnClear.Enabled = False
+        btnCalWorkDay.Enabled = True
+        grdCertification.DataSourceID = ""
+        grdCertification.DataBind()
+
+        Dim dtDateTimeInfo As DataTable = New DataTable()
+        dtDateTimeInfo = FormatDateTimeInfo()
+        Session("DateTimeInfo") = dtDateTimeInfo
+
+    End Sub
+
+    Protected Sub btnClear_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnClear.Click
+        ClearLeaveRequest()
+    End Sub
+
+    Protected Function FormatDateTimeInfo() As DataTable
+        Dim dt As DataTable = New DataTable()
+        dt.Columns.Add("LeaveFrom", System.Type.GetType("System.DateTime"))
+        dt.Columns.Add("LeaveTo", System.Type.GetType("System.DateTime"))
+        dt.Columns.Add("TotalDays", GetType(Integer))
+        dt.Columns.Add("TotalWorkingDays", GetType(Integer))
+        dt.Columns.Add("PurposeOfLeave", System.Type.GetType("System.String"))
+        Return dt
+    End Function
+
+    Protected Function GetDateTimeData(ByVal LeaveRequest As clsLeaveRequest) As DataTable
+        lblMsg.Text = ""
+        Dim dtDateTimeInfo As DataTable = Session("DateTimeInfo")
+
+        Dim EmployeeID As String
+        EmployeeID = Session("EmployeeID")
+        Dim IsValidEntry As Boolean = True
+
+        Dim dr As DataRow
+        dr = dtDateTimeInfo.NewRow()
+        dr("LeaveFrom") = String.Format("{0:dd MMM yyyy}", LeaveRequest.LeaveFrom)
+        dr("LeaveTo") = String.Format("{0:dd MMM yyyy}", LeaveRequest.LeaveTo)
+        dr("TotalDays") = lblTAplidcnt.Text
+        dr("TotalWorkingDays") = lblWorkDycnt.Text
+        dr("PurposeOfLeave") = LeaveRequest.PurposeOfLeave
+
+
+        Dim Check As String = LeaveRequestData.CheckAvailableDate(EmployeeID, LeaveRequest.LeaveFrom, LeaveRequest.LeaveTo)
+        If Check = "Approved" Or Check = "Pending" Or Check = "the" Then
+            lblMsg.Text = "Date Range is Already Exist in " + Check + " list"
+            MessageBox(lblMsg.Text)
+            IsValidEntry = False
+            Return dtDateTimeInfo
+        Else
+            lblMsg.Text = ""
+        End If
+
+        For Each rw As DataRow In dtDateTimeInfo.Rows
+            Dim dtLeaveFrom As DateTime
+            Dim dtLeaveTo As DateTime
+
+            dtLeaveFrom = rw.Item("LeaveFrom").ToString()
+            dtLeaveTo = rw.Item("LeaveTo").ToString()
+
+            If LeaveRequest.LeaveFrom <= dtLeaveFrom And LeaveRequest.LeaveTo >= dtLeaveFrom Then
+                lblMsg.Text = "Date Range is Already Exist In the List"
+                MessageBox("Date Range is Already Exist In the List")
+                IsValidEntry = False
+                Exit For
+            End If
+
+            If LeaveRequest.LeaveFrom <= dtLeaveTo And LeaveRequest.LeaveTo >= dtLeaveTo Then
+                MessageBox("Date Range is Already Exist In the List")
+                lblMsg.Text = "Date Range is Already Exist In the List"
+                IsValidEntry = False
+                Exit For
+            End If
+
+            'If dtLeaveFrom >= LeaveRequest.LeaveFrom And dtLeaveFrom <= LeaveRequest.LeaveTo Then
+            '    lblMsg.Text = "Date Range is Already Exist In the List"
+            '    Return Nothing
+            'End If
+
+            'If dtLeaveTo >= LeaveRequest.LeaveFrom And dtLeaveTo <= LeaveRequest.LeaveTo Then
+            '    lblMsg.Text = "Date Range is Already Exist In the List"
+            '    Return Nothing
+            'End If
+
+        Next
+
+        If IsValidEntry = True Then
+            dtDateTimeInfo.Rows.Add(dr)
+            dtDateTimeInfo.AcceptChanges()
+            btnSubmit.Enabled = True
+        End If
+        
+        Return dtDateTimeInfo
+
+    End Function
+
+    Protected Sub ClearDateTimeData()
+        dtDateFrom.Text = ""
+        dtDateTo.Text = ""
+        lblTAplidcnt.Text = ""
+        lblWorkDycnt.Text = ""
+        lblHlidayCnt.Text = ""
+        txtPurpose.Text = ""
+    End Sub
+
+    Protected Sub grdCertification_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdCertification.RowDeleting
+        btnSubmit.Enabled = True
+        Dim i As Integer
+        Dim dtDateTimeInfo As DataTable = New DataTable()
+
+        dtDateTimeInfo = Session("DateTimeInfo")
+
+        i = e.RowIndex
+
+        dtDateTimeInfo.Rows(i).Delete()
+        dtDateTimeInfo.AcceptChanges()
+        grdCertification.DataSource = dtDateTimeInfo
+        grdCertification.DataBind()
+    End Sub
+End Class

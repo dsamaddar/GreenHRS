@@ -1,0 +1,970 @@
+<%@ Page Language="VB" MasterPageFile="~/EmployeeProfile/MasterEmpProfile.master"
+    AutoEventWireup="false" CodeFile="frmEmpMobileBenefit.aspx.vb" Inherits="EmployeeProfile_frmEmpMobileBenefit"
+    Title="Mobile Benefit" Theme="CommonSkin" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <link href="Css/Tab.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+      
+    </style>
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <asp:Panel ID="pnl" runat="server" Width="100%" SkinID="pnlInner">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td align="left">
+                                <div class="widgettitle">Mobile Benefit List</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                </asp:ScriptManager>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="max-height: 200px; max-width: 900px; overflow: auto">
+                                    <asp:GridView ID="grdExistingMobile" runat="server" AutoGenerateColumns="False" CssClass="mGrid">
+                                        <Columns>
+                                            <asp:TemplateField HeaderText="Select" ShowHeader="False">
+                                                <ItemTemplate>
+                                                    <asp:LinkButton ID="lnkbtnSelectMobile" runat="server" CausesValidation="False" CommandName="Select"
+                                                        Text="Select"></asp:LinkButton>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="MobileBenefitID" Visible="False">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("MobileBenefitID") %>'></asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblMobileBenefitID" runat="server" Text='<%# Bind("MobileBenefitID") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="IMEINo">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("IMEINo") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("IMEINo") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Brand">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("Brand") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("Brand") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="ModelNo">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("ModelNo") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("ModelNo") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="MobileCost">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("MobileCost") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("MobileCost") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="SIMNo">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("SIMNo") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("SIMNo") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DateOfPurchse">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox7" runat="server" Text='<%# Bind("DateOfPurchse") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label7" runat="server" Text='<%# Bind("DateOfPurchse") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="DateOfReimbursement">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox9" runat="server" Text='<%# Bind("DateOfReimbursement") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label9" runat="server" Text='<%# Bind("DateOfReimbursement") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="RemarksOnMobile">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("RemarksOnMobile") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("RemarksOnMobile") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="IsInsuranceRequired">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox8" runat="server" Text='<%# Bind("IsInsuranceRequired") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label48" runat="server" Text='<%# Bind("IsInsuranceRequired") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                             <asp:TemplateField HeaderText="IsAmortized" Visible="false">
+                                                <EditItemTemplate>
+                                                    <asp:TextBox ID="TextBox13" runat="server" Text='<%# Bind("IsAmortized") %>'>
+                                                    </asp:TextBox>
+                                                </EditItemTemplate>
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblIsAmortized" runat="server" Text='<%# Bind("IsAmortized") %>'>
+                                                    </asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <asp:HiddenField ID="hdFldMobileBenefitID" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                            <cc1:TabContainer ID="tabMobileComponents" CssClass="MyTabStyle" runat="server" ActiveTabIndex="1"
+                                                AutoPostBack="True" Width="100%">
+                                                <cc1:TabPanel ID="tabPnlAddVehicle" runat="server" HeaderText="Vehicle">
+                                                    <HeaderTemplate>
+                                                        <table width="100%">
+                                                            <tr align="left">
+                                                                <td align="left" valign="top">
+                                                                    <img src="../icons/icons/phone.png" style="max-height: 30px; max-width: 30px" />
+                                                                </td>
+                                                                <td align="left" valign="top">
+                                                                    <b>ADD Mobile</b>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ContentTemplate>
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlVehicle" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr align="left">
+                                                                                <td colspan="6">
+                                                                                    <div class="widgettitle">ADD Mobile Facility</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr align="left">
+                                                                                <td style="width: 20px">
+                                                                                </td>
+                                                                                <td style="width: 150px">
+                                                                                </td>
+                                                                                <td style="width: 200px">
+                                                                                </td>
+                                                                                <td style="width: 20px">
+                                                                                </td>
+                                                                                <td style="width: 150px">
+                                                                                </td>
+                                                                                <td style="width: 200px">
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    IMEI No
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" CssClass="InputTxtBox" Width="200px" ID="txtIMEINo"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldMobileIMEINo" runat="server" ControlToValidate="txtIMEINo"
+                                                                                        Display="None" ErrorMessage="Required: IMEI No" ValidationGroup="AddMobile"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldMobileIMEINo_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldMobileIMEINo"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Brand
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:DropDownList runat="server" CssClass="InputTxtBox" Width="200px" ID="drpMobileBrand">
+                                                                                        <asp:ListItem>Nokia</asp:ListItem>
+                                                                                        <asp:ListItem>Samsung</asp:ListItem>
+                                                                                        <asp:ListItem>Motorola</asp:ListItem>
+                                                                                        <asp:ListItem>Sony Ericsson</asp:ListItem>
+                                                                                        <asp:ListItem>Sony</asp:ListItem>
+                                                                                        <asp:ListItem>LG</asp:ListItem>
+                                                                                        <asp:ListItem>Apple</asp:ListItem>
+                                                                                        <asp:ListItem>HTC</asp:ListItem>
+                                                                                        <asp:ListItem>BlackBerry</asp:ListItem>
+                                                                                        <asp:ListItem>HP</asp:ListItem>
+                                                                                        <asp:ListItem>Huawei</asp:ListItem>
+                                                                                        <asp:ListItem>Acer</asp:ListItem>
+                                                                                        <asp:ListItem>Asus</asp:ListItem>
+                                                                                        <asp:ListItem>Dell</asp:ListItem>
+                                                                                        <asp:ListItem>Alcatel</asp:ListItem>
+                                                                                        <asp:ListItem>Vodafone</asp:ListItem>
+                                                                                        <asp:ListItem>T-Mobile</asp:ListItem>
+                                                                                        <asp:ListItem>Toshiba</asp:ListItem>
+                                                                                        <asp:ListItem>Gigabyte</asp:ListItem>
+                                                                                        <asp:ListItem>Pantech</asp:ListItem>
+                                                                                        <asp:ListItem>ZTE</asp:ListItem>
+                                                                                        <asp:ListItem>Micromax</asp:ListItem>
+                                                                                        <asp:ListItem>BLU</asp:ListItem>
+                                                                                        <asp:ListItem>Spice</asp:ListItem>
+                                                                                        <asp:ListItem>Karbonn</asp:ListItem>
+                                                                                        <asp:ListItem>Icemobile</asp:ListItem>
+                                                                                        <asp:ListItem>VeryKool</asp:ListItem>
+                                                                                        <asp:ListItem>Vertu</asp:ListItem>
+                                                                                        <asp:ListItem>Celkon</asp:ListItem>
+                                                                                        <asp:ListItem>NIU</asp:ListItem>
+                                                                                        <asp:ListItem>Yezz</asp:ListItem>
+                                                                                        <asp:ListItem>Parla</asp:ListItem>
+                                                                                        <asp:ListItem>Plum</asp:ListItem>
+                                                                                    </asp:DropDownList>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Model No
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" CssClass="InputTxtBox" Width="200px" ID="txtModelNo"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldModelNo" runat="server" ControlToValidate="txtModelNo"
+                                                                                        Display="None" ErrorMessage="Required: Model No" ValidationGroup="AddMobile"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldModelNo_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldModelNo"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Mobile Cost
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" CssClass="InputTxtBox" Width="200px" ID="txtMobileCost"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldMobileCost" runat="server" ControlToValidate="txtMobileCost"
+                                                                                        Display="None" ErrorMessage="Required: Model Cost" ValidationGroup="AddMobile"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldMobileCost_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldMobileCost"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    SIM No
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" CssClass="InputTxtBox" Width="200px" ID="txtSIMNo"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldSIMNo" runat="server" ControlToValidate="txtSIMNo"
+                                                                                        Display="None" ErrorMessage="Required: SIM No" ValidationGroup="AddMobile"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldSIMNo_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldSIMNo" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Date Of Purchase
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" CssClass="InputTxtBox" Width="200px" ID="txtDateOfPurchase"></asp:TextBox>
+                                                                                    <cc1:CalendarExtender ID="txtDateOfPurchase_CalendarExtender" runat="server" Enabled="True"
+                                                                                        TargetControlID="txtDateOfPurchase">
+                                                                                    </cc1:CalendarExtender>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldDateOfPurchase" runat="server" ControlToValidate="txtDateOfPurchase"
+                                                                                        Display="None" ErrorMessage="Required: Date Of Purchase" ValidationGroup="AddMobile"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldDateOfPurchase_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldDateOfPurchase"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Mobile Set Reimbursement Date
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" CssClass="InputTxtBox" Width="200px" ID="txtMobileSetReimDate"></asp:TextBox>
+                                                                                    <cc1:CalendarExtender ID="txtMobileSetReimDate_CalendarExtender" runat="server" Enabled="True"
+                                                                                        TargetControlID="txtMobileSetReimDate">
+                                                                                    </cc1:CalendarExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Attachment
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:FileUpload runat="server" ID="flUpMobileAttachment"></asp:FileUpload>
+                                                                                    <asp:LinkButton ID="lnkBtnMobileAttachment" runat="server" target="_blank">Show Attachment</asp:LinkButton>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Remarks
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox runat="server" TextMode="MultiLine" CssClass="InputTxtBox" Height="50px"
+                                                                                        Width="200px" ID="txtRemarksForMobile"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldRemarksForMobile" runat="server" ControlToValidate="txtRemarksForMobile"
+                                                                                        Display="None" ErrorMessage="Required: Remarks" ValidationGroup="AddMobile"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldRemarksForMobile_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldRemarksForMobile"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurance Required
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkMobileInsuranceRequired" runat="server" CssClass="chkText" Text="Yes" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Button ID="btnInsertAddMobile" runat="server" CssClass="DButton" Text="Add Mobile"
+                                                                                        ValidationGroup="AddMobile" />
+                                                                                    <asp:Button ID="btnCancel" runat="server" CssClass="DButton" Text="Cancel" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </cc1:TabPanel>
+                                                <cc1:TabPanel ID="tablPnlMobileAmortization" runat="server" HeaderText="Vehicle">
+                                                    <HeaderTemplate>
+                                                        <table width="100%">
+                                                            <tr align="left">
+                                                                <td align="left" valign="top">
+                                                                    <img src="../icons/icons/schedule.png" style="max-height: 30px; max-width: 30px" />
+                                                                </td>
+                                                                <td align="left" valign="top">
+                                                                    <b>Amortization</b>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ContentTemplate>
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlMakeMobileSchedule" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr>
+                                                                                <td colspan="5">
+                                                                                    <div class="widgettitle" > Mobile Loan Amortization </div>
+                                                                                    
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Loan Amount
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtMobileLoanAmntSch" runat="server" CssClass="InputTxtBox"></asp:TextBox>&#160;&#160;<asp:RequiredFieldValidator
+                                                                                        ID="reqFldMobileLoanAmntSch" runat="server" ControlToValidate="txtMobileLoanAmntSch"
+                                                                                        Display="None" ErrorMessage="Required: Amortization Amount" ValidationGroup="Amortization"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="valCallreqFldMobileLoanAmntSch" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldMobileLoanAmntSch"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Depreciation Year
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtMobileDepreciationYear" runat="server" CssClass="InputTxtBox"
+                                                                                        Width="100px"></asp:TextBox>&#160;&#160;<asp:RequiredFieldValidator ID="reqFldMobileDepreciationYear"
+                                                                                            runat="server" ControlToValidate="txtMobileDepreciationYear" Display="None"
+                                                                                            ErrorMessage="Required: Depreciation Year" ValidationGroup="Amortization"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                                ID="reqFldMobileDepreciationYear_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                                CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldMobileDepreciationYear"
+                                                                                                WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                            </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Adjustable From Salary
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsAdjustableFromSalary" runat="server" Text="Yes" AutoPostBack="True" />
+                                                                                </td>
+                                                                                <td>
+                                                                                    Interest Rate
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtMobileIntRate" runat="server" CssClass="InputTxtBox" Width="100px"></asp:TextBox>&#160;&#160;<asp:RequiredFieldValidator
+                                                                                        ID="reqFldMobieLoanIntRate" runat="server" ControlToValidate="txtMobileIntRate"
+                                                                                        Display="None" ErrorMessage="Required: Interest Rate" ValidationGroup="Amortization"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldMobieLoanIntRate_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldMobieLoanIntRate"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Abatement Applicable
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsAbatementApplicable" runat="server" Text="Yes" AutoPostBack="True" />
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Reimbursement Date
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtMobileAmortizationStartDate" runat="server" CssClass="InputTxtBox"
+                                                                                        Width="100px"></asp:TextBox><cc1:CalendarExtender ID="txtMobileAmortizationStartDate_CalendarExtender"
+                                                                                            runat="server" Enabled="True" TargetControlID="txtMobileAmortizationStartDate">
+                                                                                        </cc1:CalendarExtender>
+                                                                                    <asp:RequiredFieldValidator ID="reqFldMobileLoanReimbursementDate" runat="server"
+                                                                                        ControlToValidate="txtMobileAmortizationStartDate" Display="None" ErrorMessage="Required: Amortization Start Date"
+                                                                                        ValidationGroup="Amortization"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldMobileLoanReimbursementDate_ValidatorCalloutExtender" runat="server"
+                                                                                            CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle" Enabled="True"
+                                                                                            TargetControlID="reqFldMobileLoanReimbursementDate" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Depreciate Payment
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsDepreciatePmntAutomatically" runat="server" Text="Yes" AutoPostBack="True" />
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Linear Amortization
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsLinearAmortization" runat="server" Text="Yes" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Button ID="btnMakeMobileSchedule" runat="server" CssClass="DButton" Text="Show Schedule"
+                                                                                        ValidationGroup="Amortization" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    &#160;
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlShowMobileSchedule" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <div class="widgettitle" >Amortization</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td valign="top">
+                                                                                    <div style="max-width: 900px; max-height: 200px; overflow: auto">
+                                                                                        <asp:GridView ID="grdMobileSchedule" runat="server" AutoGenerateColumns="False"
+                                                                                            ShowFooter="True" CssClass="mGrid">
+                                                                                            <Columns>
+                                                                                                <asp:TemplateField HeaderText="SL">
+                                                                                                    <ItemTemplate>
+                                                                                                        <b>
+                                                                                                            <%#CType(Container, GridViewRow).RowIndex + 1%></b>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Payment Date">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("PaymentDate") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label2" runat="server" 
+                                                                                                            Text='<%# Bind("PaymentDate", "{0:d}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Payment Amount">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("PaymentAmount","{0:N2}") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblPaymentAmount" runat="server" 
+                                                                                                            Text='<%# Bind("PaymentAmount", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Principal Payment">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("PrincipalPayment") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblPrincipalPayment" runat="server" 
+                                                                                                            Text='<%# Bind("PrincipalPayment", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Interest Payment">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("InterestPayment") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblInterestPayment" runat="server" 
+                                                                                                            Text='<%# Bind("InterestPayment", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Abatement">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox6" runat="server" Text='<%# Bind("Abatement") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblAbatement" runat="server" Text='<%# Bind("Abatement") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="URPA">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("URPA", "{0:N2}") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label5" runat="server" Text='<%# Bind("URPA", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                            </Columns>
+                                                                                        </asp:GridView>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td valign="top">
+                                                                                    <div style="max-height: 200px; max-width: 200px; overflow: auto">
+                                                                                        <asp:GridView ID="grdMobileAbatement" runat="server" AutoGenerateColumns="False"
+                                                                                            CssClass="mGrid" ShowFooter="True">
+                                                                                            <Columns>
+                                                                                                <asp:TemplateField HeaderText="Month">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("AbatementMonth") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("AbatementMonth") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Rate Of Abatement">
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("RateOfAbatement") %>'></asp:TextBox></EditItemTemplate>
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("RateOfAbatement") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                            </Columns>
+                                                                                        </asp:GridView>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlFinalizeMobileSchedule" runat="server" SkinID="pnlInner">
+                                                                        <table width="100%">
+                                                                            <tr>
+                                                                                <td align="center">
+                                                                                    <asp:Button ID="btnFinalizeMobileAmortization" runat="server" CssClass="DButton"
+                                                                                        Text="Finalize Amortization" Enabled="False" ValidationGroup="Amortization" OnClientClick="if (!confirm('Are you Sure to Finalize The Schedule ?')) return false" /><asp:Button
+                                                                                            ID="btnCancelMobileAmortization" runat="server" CssClass="DButton" Text="Cancel" />
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </cc1:TabPanel>
+                                                <cc1:TabPanel ID="tabPnlInsurance" runat="server" HeaderText="Vehicle">
+                                                    <HeaderTemplate>
+                                                        <table>
+                                                            <tr align="left">
+                                                                <td align="left" valign="top">
+                                                                    <img src="../icons/icons/insurance.png" style="max-height: 30px; max-width: 30px" />
+                                                                </td>
+                                                                <td align="left" valign="top">
+                                                                    <b>Insurance Info</b>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ContentTemplate>
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div style="max-height: 200px; max-width: 900px; overflow: auto">
+                                                                        <asp:GridView ID="grdInsuranceInfo" runat="server" AutoGenerateColumns="False" CssClass="mGrid">
+                                                                            <Columns>
+                                                                                <asp:TemplateField HeaderText="MobileBenefitID" Visible="False">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox11" runat="server" Text='<%# Bind("InsuranceID") %>'></asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="lblInsuranceID" runat="server" Text='<%# Bind("InsuranceID") %>'>
+                                                                                        </asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Insurance Type">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox12" runat="server" Text='<%# Bind("InsuranceType") %>'>
+                                                                                        </asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="Label2" runat="server" Text='<%# Bind("InsuranceType") %>'>
+                                                                                        </asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Insurance With">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox13" runat="server" Text='<%# Bind("InsuranceWith") %>'>
+                                                                                        </asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="Labe1l3" runat="server" Text='<%# Bind("InsuranceWith") %>'></asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Insurance No">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox14" runat="server" Text='<%# Bind("InsuranceNo") %>'>
+                                                                                        </asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="Label14" runat="server" Text='<%# Bind("InsuranceNo") %>'>
+                                                                                        </asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Insured Value">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox15" runat="server" Text='<%# Bind("InsuredValue") %>'>
+                                                                                        </asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="Label15" runat="server" Text='<%# Bind("InsuredValue") %>'>
+                                                                                        </asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Start Date">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox16" runat="server" Text='<%# Bind("InsuranceStartDate") %>'>
+                                                                                        </asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="Label16" runat="server" Text='<%# Bind("InsuranceStartDate") %>'>
+                                                                                        </asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                                <asp:TemplateField HeaderText="Renewal Date">
+                                                                                    <EditItemTemplate>
+                                                                                        <asp:TextBox ID="TextBox17" runat="server" Text='<%# Bind("InsuranceRenewalDate") %>'>
+                                                                                        </asp:TextBox>
+                                                                                    </EditItemTemplate>
+                                                                                    <ItemTemplate>
+                                                                                        <asp:Label ID="Label17" runat="server" Text='<%# Bind("InsuranceRenewalDate") %>'>
+                                                                                        </asp:Label>
+                                                                                    </ItemTemplate>
+                                                                                </asp:TemplateField>
+                                                                            </Columns>
+                                                                        </asp:GridView>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlVehicleInsuranceInfo" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr>
+                                                                                <td colspan="6">
+                                                                                    <div  class="widgettitle">Mobile Insurance</div>
+                                                                                    
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="width: 20px">
+                                                                                </td>
+                                                                                <td style="width: 150px">
+                                                                                </td>
+                                                                                <td style="width: 200px">
+                                                                                </td>
+                                                                                <td style="width: 20px">
+                                                                                </td>
+                                                                                <td style="width: 150px">
+                                                                                </td>
+                                                                                <td style="width: 200px">
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Type Insurance
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:DropDownList ID="drpInsuranceType" runat="server" CssClass="InputTxtBox" Width="200px">
+                                                                                        <asp:ListItem>1st Party</asp:ListItem>
+                                                                                        <asp:ListItem>3rd Party</asp:ListItem>
+                                                                                    </asp:DropDownList>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurance&#160; With
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtInsuranceWith" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldInsuranceWith" runat="server" ControlToValidate="txtInsuranceWith"
+                                                                                        Display="None" ErrorMessage="Required: Insurance With" ValidationGroup="AddInsurance"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldInsuranceWith_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldInsuranceWith"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurance No
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtInsuranceNo" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldInsuranceNo" runat="server" ControlToValidate="txtInsuranceNo"
+                                                                                        Display="None" ErrorMessage="Required: Insurance No" ValidationGroup="AddInsurance"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldInsuranceNo_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldInsuranceNo"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insured Value
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtInsuranceValue" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldInsuranceValue" runat="server" ControlToValidate="txtInsuranceValue"
+                                                                                        Display="None" ErrorMessage="Required: Insurance Value" ValidationGroup="AddInsurance"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldInsuranceValue_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldInsuranceValue"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurance Start Date
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtInsuranceStartDate" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>
+                                                                                    <cc1:CalendarExtender ID="txtInsuranceStartDate_CalendarExtender" runat="server"
+                                                                                        Enabled="True" TargetControlID="txtInsuranceStartDate">
+                                                                                    </cc1:CalendarExtender>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldInsuranceStartDate" runat="server" ControlToValidate="txtInsuranceStartDate"
+                                                                                        Display="None" ErrorMessage="Required: Insurance Start date" ValidationGroup="AddInsurance"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldInsuranceStartDate_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldInsuranceStartDate"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurance Renewal Date
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtInsuranceRenewalDate" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>
+                                                                                    <cc1:CalendarExtender ID="txtInsuranceRenewalDate_CalendarExtender" runat="server"
+                                                                                        Enabled="True" TargetControlID="txtInsuranceRenewalDate">
+                                                                                    </cc1:CalendarExtender>
+                                                                                    &#160;<asp:RequiredFieldValidator ID="reqFldInsuranceRenewalDate" runat="server"
+                                                                                        ControlToValidate="txtInsuranceRenewalDate" Display="None" ErrorMessage="Required: Insurance Renewal date"
+                                                                                        ValidationGroup="AddInsurance"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldInsuranceRenewalDate_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldInsuranceRenewalDate"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurance Attachments
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:FileUpload runat="server" ID="flUpInsurance"></asp:FileUpload>
+                                                                                    <asp:LinkButton ID="LntbtnInsurAttachment" runat="server" target="_blank">Show Attachment</asp:LinkButton>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Button ID="btnAddInsurance" runat="server" CssClass="DButton" Text="ADD Insurance"
+                                                                                        ValidationGroup="AddInsurance" />
+                                                                                    &#160;<asp:Button ID="btnCancelToAddInsurance" runat="server" CssClass="DButton"
+                                                                                        Text="Cancel" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </cc1:TabPanel>
+                                            </cc1:TabContainer>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </td>
+        </tr>
+        </table>
+</asp:Content>

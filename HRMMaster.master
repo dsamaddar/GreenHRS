@@ -1,0 +1,347 @@
+﻿<%@ Master Language="VB" CodeFile="HRMMaster.master.vb" Inherits="HRMMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <link href="Sources/css/UltraCssClass.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/demo.css" rel="stylesheet" type="text/css" />
+    <%-- <link href="Sources/css/style.css" rel="stylesheet" type="text/css" />--%>
+    <%-- <link href="Sources/css/MenuCss.css" rel="stylesheet" type="text/css" />--%>
+    <link href="Sources/css/ValidatorStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/Title.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/GridStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/DataGrid.css" rel="stylesheet" type="text/css" />
+    <link href="Sources/css/Tab.css" rel="stylesheet" type="text/css" />
+
+    <script src="Sources/js/jquery-1.10.2.js" type="text/javascript"></script>
+
+    <script src="Sources/js/jquery.ui.core.min.js" type="text/javascript"></script>
+
+    <script src="Sources/js/jquery.tablesorter.min.js" type="text/javascript"></script>
+
+    <meta http-equiv="x-ua-compatible" content="ie=emulateie9" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table style="width: 100%;">
+        <tr>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td style="width: 80%" align="left">
+                            <asp:Label ID="lblEmpLoggedInUser" runat="server" Text="" CssClass="label"></asp:Label>
+                        </td>
+                        <td style="width: 20%" align="right">
+                            <asp:LoginStatus ID="lgStatus" runat="server" LogoutAction="RedirectToLoginPage"
+                                CssClass="label" ForeColor="Blue" LogoutPageUrl="~/frmHRMLogin.aspx" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <div style="position: relative; float: left">
+                    <asp:Menu ID="mnuControl" runat="server" StaticSubMenuIndent="10px" Orientation="Horizontal"
+                        DynamicSelectedStyle-BorderStyle="NotSet" BackColor="#E3EAEB" DynamicHorizontalOffset="2"
+                        Font-Names="Arial" ForeColor="#666666" Font-Bold="True" StaticEnableDefaultPopOutImage="False"
+                        Width="100%">
+                        <StaticSelectedStyle BackColor="#1C5E55" />
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle />
+                            <asp:MenuItemStyle />
+                            <asp:MenuItemStyle />
+                            <asp:MenuItemStyle />
+                        </LevelMenuItemStyles>
+                        <StaticMenuItemStyle HorizontalPadding="15px" VerticalPadding="10px" />
+                        <DynamicHoverStyle BackColor="#666666" ForeColor="White" />
+                        <DynamicMenuStyle BackColor="#D2EEA9" BorderColor="White" BorderWidth="3px" />
+                        <DynamicSelectedStyle BackColor="#1C5E55" />
+                        <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="5px" />
+                        <StaticHoverStyle BackColor="#666666" ForeColor="White" />
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/EmployeeProfile/frmEmployeeDetails.aspx?EmployeeID=Self"
+                                Text="My Profile" Value="My Profile"></asp:MenuItem>
+                            <asp:MenuItem Text="Employee Activity" NavigateUrl="~/EmployeeProfile/EmpIDGeneration.aspx"
+                                Value="Employment">
+                                <asp:MenuItem Text="Salary Setup" Value="SalarySetup">
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmEmpEditBasicInfo.aspx" Text="Edit Basic Emp. Info"
+                                        Value="EditBasicEmpInfo"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmComponentDefinition.aspx" Text="Define Component"
+                                        Value="DefComponent"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmSalComponnetUsage.aspx" Text="Component Usage"
+                                        Value="ComponentUsage"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmComponentReset.aspx" Text="Reset Component"
+                                        Value="ResetComp"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmRoleWiseComponent.aspx" Text="Role Wise Component"
+                                        Value="RoleWiseComponent"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmAssignEmpWiseRole.aspx" Text="Employee Wise Role"
+                                        Value="EmpWiseRole"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmEmpWiseSalary.aspx" Text="Employee Wise Salary"
+                                        Value="EmpWiseSalary"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmProcessEmpSalary.aspx" Text="Process Salary"
+                                        Value="ProcessSalary"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmEmpTaxAdvance.aspx" Text="Advance Tax" Value="AdvanceTax">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Report" Value="SalaryReport">
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmFundTransferToBank.aspx" Text="Fund Transfer Report"
+                                            Value="FundTransferReport"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmFundTransToBankByEntryPnt.aspx" Text="Fund Transfer Rpt. By Ent. Pnt"
+                                            Value="FndTrnsRptEntPnt"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmEmpSalaryCertificate.aspx" Text="Emp. Salary Certificate"
+                                            Value="EmpSalCertificate"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmBranchWiseSalary.aspx" Text="Branch Wise Salary"
+                                            Value="BrWiseSalary"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmDesignationWiseSalary.aspx" Text="Designation Wise Salary"
+                                            Value="Designation Wise Salary"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmJVReport.aspx" Text="Salary JV Report" Value="SalJVRpt">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmBranchWiseSalaryDetails.aspx" Text="Branch Wise Sal. Details"
+                                            Value="BrSalDetails"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmSalaryReconciliation.aspx" Text="Salary Reconciliation"
+                                            Value="SalReconciliation"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmSalaryLargeReport.aspx" Text="Salary Large Report"
+                                            Value="SalLargeRpt"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmSalaryLargeReportDummy.aspx" 
+                                            Text="Salary Large Report Dummy" Value="SalLargeRptDummy"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmReportTaxCertificate.aspx" Text="Tax Certificate"
+                                            Value="TaxCertificate"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmBEFTNSalFormat.aspx" Text="BEFTN Transfer"
+                                            Value="BEFTNTransfer"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmSalarySheet.aspx" Text="Salary Sheet" Value="SalarySheet">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmPFStatement.aspx" Text="PF Statement" Value="PFStatement">
+                                        </asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmSalGenerationPermission.aspx" Text="Salary Gen. Permission"
+                                        Value="SalGenPer"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmProvidentFundInfo.aspx" Text="Provident Fund Info"
+                                        Value="PFInfo"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReverseSalary.aspx" Text="Finalize/Reverse Salary"
+                                        Value="Finalize/Reverse Salary"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmChartOfAccounts.aspx" Text="Chart Of Account"
+                                        Value="COA"></asp:MenuItem>
+                                    <asp:MenuItem Text="Loan" Value="EmpLoan">
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmBenefitTypeDefinition.aspx" Text="Benefit Definition"
+                                            Value="BenDef"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmLoanApproval.aspx" Text="Approve Loan App"
+                                            Value="ApproveLoanApp"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmAllApprovedLoan.aspx" Text="All Approved Loan Acc"
+                                            Value="AllAppLoanAcc"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmLoanCertificate.aspx" Text="Loan Certificate"
+                                            Value="LoanCertificate"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmEarlySettlement.aspx" Text="Early Settlement"
+                                            Value="ErlySettle"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmTaxSlabDefinition.aspx" Text="Tax Slab Definition"
+                                        Value="TaxSlabDef"></asp:MenuItem>
+                                    <asp:MenuItem Text="Transport Allowance" Value="TransportAllowance">
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmFuelPriceSettings.aspx" Text="Fuel Price Settings"
+                                            Value="FuelPriceSett"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmEmpWiseETASettings.aspx" Text="ETA Settings By Emp"
+                                            Value="ETASettings"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/Payroll/frmGenerateExternalTA.aspx" Text="Process ETA"
+                                            Value="ProcessETA"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmEmpWiseSalaryResigned.aspx" Text="Resigned Emp Wise Salary"
+                                        Value="Resigned Emp Wise Salary"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmSalaryCalculator.aspx" Text="Salary Calculator"
+                                        Value="SalCalc"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmDisparityCalculation.aspx" Text="Disparity Calculation"
+                                        Value="DispCalc"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmInputChallanNo.aspx" Text="Input Challan No"
+                                        Value="InpChallan"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmPFAuditRptIntegration.aspx" Text="Audited PF Bulk Insert"
+                                        Value="PFBulkIns"></asp:MenuItem>
+                                    <asp:MenuItem Text="Manage Bank Acc" Value="ManageBankAcc">
+                                        <asp:MenuItem NavigateUrl="~/BankInfo/frmBankBranchInfo.aspx" Text="Manage Bank-Branch"
+                                            Value="ManageBankBranch"></asp:MenuItem>
+                                        <asp:MenuItem NavigateUrl="~/BankInfo/frmManageULCBankAccount.aspx" Text="ULC Bank Acc"
+                                            Value="ULCBankAcc"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="HR Database &amp; Services" Value="HRDBServices">
+                                <asp:MenuItem NavigateUrl="~/frmOrganizationStructure.aspx" Text="Organization Structure"
+                                    Value="OrgStructure"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmPerformanceReview.aspx" Text="Performance Review"
+                                    Value="PerfReview"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmProfessionalRecords.aspx" Text="Professional Records"
+                                    Value="ProfRec"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmGratuityCalculation.aspx" Text="Gratuity Calculation"
+                                    Value="GratuityCalculation"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmHRAcceptResignationRequest.aspx" Text="Pending Resignation Request"
+                                    Value="PendingResigReq"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmSyncUserAttendance.aspx" Text="Sync. User Attendance"
+                                    Value="SyncUserAtt"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Services/frmConfirmationDue.aspx" Text="Confirmation Due"
+                                    Value="ConfirmationDue"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmHRServiceRequest.aspx" Text="HR-Service Request"
+                                    Value="HRServiceReq"></asp:MenuItem>
+                                <asp:MenuItem Text="HR Service Report" Value="HRServiceReport">
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportNOCForPassport.aspx" Text="NOC For Passport"
+                                        Value="NOCForPassport"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportNOCForVisa.aspx" Text="NOC For Visa"
+                                        Value="NOCForVisa"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportNOCForHigherEd.aspx" Text="NOC For Higher Edu."
+                                        Value="NOCHiEdu"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportExperienceCertActive.aspx" Text="Experience Certificate Active Emp"
+                                        Value="ExpCertActiveEmp"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportExperienceCertOnRelease.aspx" Text="Experience Certificate On Release"
+                                        Value="ExpCertOnRelease"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportReferenceLetter.aspx" Text="Reference Letter"
+                                        Value="ReferenceLetter"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportReleaseLetter.aspx" Text="Release Letter"
+                                        Value="ReleaseLetter"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/frmEmpTrainingReport.aspx" Text="Emp. Training Report"
+                                        Value="EmpTrainingRpt"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReportSalaryAccountOpenning.aspx" Text="Salary Account Openning"
+                                        Value="SalAccOpenning"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmIDCardForm.aspx" Text="ID Card Form" Value="IDCardForm">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/frmHRServicesReport.aspx" Text="Service Report" Value="ServiceReport">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/frmEmpDashBoard.aspx" Text="Employee Dashboard" Value="EmpDashBoard">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmBusinessExGradingUpload.aspx" Text="Employee Evaluaion"
+                                    Value="EmpEvaluation"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Services/frmContractRenewalDue.aspx" Text="Contract Renewal Due"
+                                    Value="CtrctRenDue"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmEmpEvaluationInfo.aspx" Text="Emp. Completed Evaluation"
+                                    Value="EmpEvalCom"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Gen. Admin" Value="GenAdmin">
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmInputAttendance.aspx" Text="Input Daily Attendance"
+                                    Value="InpDailyAtt"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmDailyAttendanceReport.aspx" Text="Daily Attendance Report"
+                                    Value="DailyAttReport"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmAttStatusIndividualEmp.aspx" Text="Att. Status Individual"
+                                    Value="AttStatInd"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmEmpAbsentReport.aspx" Text="Individual Absent Report"
+                                    Value="IndAbsRpt"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmEmpAbsentReportAll.aspx" Text="All Emp. Absent Report"
+                                    Value="All Emp. Absent Report"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLateAttReport.aspx" Text="Late Attendance Report"
+                                    Value="LateAttReport"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmMonthlyAttReport.aspx" Text="Monthly Att. Report"
+                                    Value="MnthlyAttRpt"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmEmpAbsentMail.aspx" Text="Send Absent Mail"
+                                    Value="SAbsentMail"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmAttSettlementFinal.aspx" Text="Att. Settlement Final"
+                                    Value="Att. Settlement Final"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLeaveMatrix.aspx" Text="Leave Matrix"
+                                    Value="LeaveMatrix"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmAttAdminEntryReport.aspx" Text="Att. Report By Admin"
+                                    Value="AttRptByAdmin"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmAbsentMatrix.aspx" Text="Absent Matrix"
+                                    Value="AbsentMatrix"></asp:MenuItem>
+                                <asp:MenuItem Text="Absent Mail" Value="AbsentMail">
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/frmEmpDailyAbsentMail.aspx" Text="Today's Absent Info"
+                                        Value="TodaysAbsInf"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/frmEmpPrimaryWarningAbsentMail.aspx"
+                                        Text="Primary Warning" Value="PrimaryWarning"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/frmEmpFinalWarningAbsentMail.aspx" Text="Final Warning"
+                                        Value="FinalWarning"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmEmployeeStatus.aspx" Text="Employee Status Report"
+                                    Value="EmpStatusRpt"></asp:MenuItem>
+                                <asp:MenuItem Text="Release Authorization" Value="ReleaseAuth">
+                                    <asp:MenuItem NavigateUrl="~/Payroll/frmReleaseAuthorizationGA.aspx" Text="General Admin"
+                                        Value="RelAuthGA"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmEmpWiseAttSettings.aspx" Text="Emp. Wise Login Time Settings"
+                                    Value="EmpLogTSett"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem NavigateUrl="~/Organizations/AdminDefault.aspx" Text="Software Administration"
+                                Value="Administration">
+                                <asp:MenuItem Text="Application Settings" Value="AppSett">
+                                    <asp:MenuItem NavigateUrl="~/Department/frmDeptSettings.aspx" Text="Department" Value="Department">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Organizations/frmOrganizations.aspx" Text="Organization"
+                                        Value="Organization">
+                                        <asp:MenuItem NavigateUrl="~/Organizations/frmOrganizationSettings.aspx" Text="Organization Settings"
+                                            Value="OrgSetting"></asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/JobCircular/frmJobSettings.aspx" Text="JobSettings"
+                                        Value="JobSettings"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/CVSetting/frmCanEduSetting.aspx" Text="CV Settings"
+                                        Value="CvSettings"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/EmployeeSettings.aspx" Text="Employee Settings" Value="EmpSettings">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="HR Services" Value="HRServices" NavigateUrl="~/frmHRServices.aspx">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Job Description Settings" Value="JobDesc">
+                                    <asp:MenuItem NavigateUrl="~/JD/frmInputJD.aspx" Text="JD Definition" Value="JDDef">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmCandidateMsgReply.aspx" Text="Reply Feedback" Value="RepFeedback">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Training/frmTrainingSettings.aspx" Text="Training Settings"
+                                    Value="TrngSettings"></asp:MenuItem>
+                                <asp:MenuItem Text="Leave Management" Value="LeaveMgmt">
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLeaveSettings.aspx" Text="Leave Settings"
+                                        Value="LeaveSettings"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/frmHoliday.aspx" Text="Manage Holidays"
+                                        Value="ManageHolidays"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLeaveBalance.aspx" Text="Leave Balance"
+                                        Value="LeaveBalance"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/LeaveManagement/QueryOnLeave.aspx" Text="Leave Balance Report"
+                                        Value="LBanalceReport"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmMedicalOfficer.aspx" Text="Manage Letter Recipient"
+                                    Value="MngLetterRecipient"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/frmManageULCBranch.aspx" Text="Manage Branch" Value="MngBranch">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Settings/frmEmpJDActivation.aspx" Text="Manage JD" Value="ManageJD">
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Web Administration" Value="WebAdmin">
+                                    <asp:MenuItem NavigateUrl="~/Administration/frmRoleManagement.aspx" Text="Role Management"
+                                        Value="RoleManagement"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Administration/frmRolwWiseMenuPermission.aspx" Text="Role Wise Menu"
+                                        Value="RoleWiseMenu"></asp:MenuItem>
+                                    <asp:MenuItem NavigateUrl="~/Administration/frmUserRoleManagement.aspx" Text="User Wise Role"
+                                        Value="UserWiseRole"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmEmpEditBasicInfoAdmin.aspx" Text="Edit Emp. Basic Info"
+                                    Value="EdtEmpBInf"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmExternalTestTypeDef.aspx" Text="External Test Type Def."
+                                    Value="ExtTestTypeDef"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmPutExternalTestScore.aspx" Text="Put Ext Test Score"
+                                    Value="PutExtTestScore"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmRecruitmentTypeDef.aspx" Text="Recruitment Type Def"
+                                    Value="RecTypeDef"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmEmpAssignTraining.aspx" Text="Assign Training"
+                                    Value="AssTrng"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmRescheduleTraining.aspx" Text="Reschedule Training"
+                                    Value="ReschTrng"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmResReqRoleControl.aspx" Text="Rec. Req. Control"
+                                    Value="RecReqCtrl"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Administration/frmMakeQuery.aspx" Text="Query Tool"
+                                    Value="QueryTool"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,217 @@
+﻿<%@ Master Language="VB" CodeFile="Frame.master.vb" Inherits="Frame" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>HRM</title>
+    <link rel="Stylesheet" type="text/css" href="../Css/MenuCss.css" />
+    <script async="" src="animatedwin2_files/cbgapi.loaded_0"></script><script language="JavaScript">
+<!--                                                                           Begin
+
+           //Animated Window- By Rizwan Chand (rizwanchand@hotmail.com)
+           //Modified by DD for NS compatibility
+           //Visit http://www.dynamicdrive.com for this script
+
+           function expandingWindow(website) {
+               var windowprops = 'width=100,height=100,scrollbars=yes,status=yes,resizable=yes'
+               var heightspeed = 15; // vertical scrolling speed (higher = slower)
+               var widthspeed = 15;  // horizontal scrolling speed (higher = slower)
+               var leftdist = 15;    // distance to left edge of window
+               var topdist = 15;     // distance to top edge of window
+
+               if (window.resizeTo && navigator.userAgent.indexOf("Opera") == -1) {
+                   var winwidth = window.screen.availWidth - leftdist;
+                   var winheight = window.screen.availHeight - topdist;
+                   var sizer = window.open("", "", "left=" + leftdist + ",top=" + topdist + "," + windowprops);
+                   for (sizeheight = 1; sizeheight < winheight; sizeheight += heightspeed)
+                       sizer.resizeTo("1", sizeheight);
+                   for (sizewidth = 1; sizewidth < winwidth; sizewidth += widthspeed)
+                       sizer.resizeTo(sizewidth, sizeheight);
+                   sizer.location = website;
+               }
+               else
+                   window.open(website, 'mywindow');
+                                                                           }
+//  End -->
+    </script>
+    <script language="JavaScript">
+    <!--
+    function MM_swapImgRestore() { //v3.0
+      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+    }
+
+    function MM_preloadimg() { //v3.0
+      var d=document; if(d.img){ if(!d.MM_p) d.MM_p=new Array();
+        var i,j=d.MM_p.length,a=MM_preloadimg.arguments; for(i=0; i<a.length; i++)
+        if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+    }
+
+    function MM_findObj(n, d) { //v4.0
+      var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+      if(!x && document.getElementById) x=document.getElementById(n); return x;
+    }
+
+    function MM_swapImage() { //v3.0
+      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+       if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+    }
+    //-->
+    </script>    
+    
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">    
+	.pager span { color:#000099;font-weight:bold; font-size:16pt; }	
+  </style>
+</head>
+<body>
+    <form id="form1" runat="server" style="font-family:Arial; font-size:11px;">
+    <div>
+    
+                           <%--<asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                                            
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+--%>
+
+        <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td rowspan="3" width="15%" align="center" valign="top">
+                   &nbsp;
+                </td>
+                <td align="center" valign="top">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                            <td width="1px">
+                                &nbsp;
+                            </td>
+                            <td align="center" valign="top">
+                                <table width="100%">
+                                    <tr>
+                                        <%--<td width="50%" align="right">                                            
+                                            <asp:LoginName ID="LoginName1" runat="server" Font-Italic="true" ForeColor="#7F7F7F" Font-Names="Arial" Font-Bold="true" Font-Size="9"/>
+                                            &nbsp; 
+                                            <asp:LoginStatus ID="LoginStatus1" runat="server" 
+                                                Font-Bold="True" Font-Names="Arial" Font-Size="9pt" ForeColor="#000000" 
+                                                LoginText="" LogoutText="Exit" />
+                                        </td>--%>
+                                            <%--<td align="right">
+                                                    <img src="../img/Logo.png" width="190px" /><br />                    
+                                                    <asp:Label SkinId="lblNoEffect"  ID="Label1" Font-Italic="False" 
+                                                        ForeColor="#003AB3" Font-Names="Arial" Font-Bold="True" Font-Size="9pt" 
+                                                        runat="server" Text="VER: NE.12.1.2.2"></asp:Label>
+                                        </td>--%>
+                                    </tr>
+                                </table>
+                                     
+                            </td>
+                            <td width="1px">
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>                
+                <td align="right" valign="top">
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                          
+                               
+
+
+                                        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="menu1">
+                                          <LevelMenuItemStyles>            
+                                                <asp:MenuItemStyle CssClass="level1"/> 
+                                                <asp:MenuItemStyle CssClass="level2"/> 
+                                                <asp:MenuItemStyle CssClass="level3"/> 
+                                                <asp:MenuItemStyle CssClass="level4"/>                                                 
+
+                                            </LevelMenuItemStyles>
+
+
+                                            <Items>
+                                                <%--<asp:MenuItem NavigateUrl="~/Default/Default.aspx" Text="Home" Value="Home">
+                                                </asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Request/Default.aspx" Text="Request" 
+                                                    Value="Request"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Pending/Default.aspx" Text="Pending Reviewer" 
+                                                    Value="Pending Reviewer"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Reviewed/Default.aspx" Text="Pending Approver" 
+                                                    Value="Pending Approver"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Approved/Default.aspx" Text="Approved" 
+                                                    Value="Approved"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Rejected/Default.aspx" Text="Rejected" 
+                                                    Value="Rejected"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Query/Default.aspx" Text="Query" Value="Query">
+                                                </asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Administration/Default.aspx" Text="Administrator" 
+                                                    Value="Administrator"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Administration/ChangePassword.aspx" 
+                                                    Text="Password Change" Value="Password Change"></asp:MenuItem>
+                                                <asp:MenuItem NavigateUrl="~/Supporting/UserManual.pdf" Text="User Manual" 
+                                                    Value="Manual"></asp:MenuItem>--%>
+                                            </Items>
+                                        </asp:Menu>                                    
+                              
+                                                                                        
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <br />
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" align="center" valign="top">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder3" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td rowspan="2" align="center" valign="top" align="center" valign="top">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" valign="top" width="100%">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder> 
+                </td>
+            </tr>     
+            <tr>
+                <td valign="top">&nbsp;</td>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <%--<tr>
+                            <td width="1px">
+                                 <img src="../img/topl.jpg" />
+                            </td>
+                            <td background="../img/topm.jpg" align="left" valign="top">
+                               <asp:Label SkinId="lblNoEffect"  ID="Label3" ForeColor="#7F7F7F" 
+                                    Font-Names="Arial" Font-Bold="True" Font-Size="9pt" runat="server" 
+                                    Text="United Leasing Company Limited"></asp:Label>
+                            </td>
+                            <td background="../img/topm.jpg" align="right" valign="top">
+                               <asp:Label SkinId="lblNoEffect"  ID="Label4" ForeColor="#7F7F7F" 
+                                    Font-Names="Arial" Font-Bold="True" Font-Size="9pt" runat="server" 
+                                    Text="Powered By - System Development"></asp:Label>
+                            </td>                            
+                            <td width="1px">
+                                <img src="../img/topr.jpg" />
+                            </td>
+                        </tr>--%>
+                    </table>                                
+                </td>
+            </tr>                                           
+        </table>
+
+        
+    </div>
+    </form>
+</body>
+</html>

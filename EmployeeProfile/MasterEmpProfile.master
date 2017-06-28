@@ -1,0 +1,347 @@
+﻿<%@ Master Language="VB" CodeFile="MasterEmpProfile.master.vb" Inherits="EmployeeProfile_MasterEmpProfile"  %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="EmpStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../Sources/css/UltraCssClass.css" rel="stylesheet" type="text/css" />
+    <link href="../Sources/css/ValidatorStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Css/GridStyle.css" rel="stylesheet" type="text/css" />
+    <link href="Css/Title.css" rel="stylesheet" type="text/css" />
+    <link href="Css/Tab.css" rel="stylesheet" type="text/css" />
+
+    <script src="../Sources/js/jquery.magnifier.js" type="text/javascript"></script>
+
+    <script src="../Sources/js/jquery.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        .selector
+        {
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script language="JavaScript" type="text/javascript">
+    function openWindow(windowURL,windowName,windowWidth,windowHeight) {
+
+    var left = (screen.width/2)-(windowWidth/2);
+    var top = (screen.height/2)-(windowHeight/2);
+
+    window.name = 'parentWnd';
+    newWindow = window.open(windowURL,windowName,'top='+ top +',left='+ left +',width='+windowWidth+',height='+windowHeight+',toolbar=0,location=no,directories=0, status=0,menuBar=0,scrollBars=1,resizable=1');
+    newWindow.focus();
+}
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <table style="width: 100%;">
+        <tr>
+            <td align="left">
+                <div>
+                    <asp:Label ID="lblEmpLoggedInUser" ForeColor="#4169E1" CssClass="label" runat="server"
+                        Text=""></asp:Label>
+                </div>
+            </td>
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td align="left">
+                            <asp:HyperLink ID="hplnkBackToPages" ForeColor="#4169E1" NavigateUrl="~/EmployeeProfile/EmpIDGeneration.aspx"
+                                CssClass="label" runat="server" Visible="false">Back To Employee List</asp:HyperLink>
+                        </td>
+                        <td align="right">
+                            <asp:LoginStatus ID="lgStatus" runat="server" ForeColor="#4169E1" CssClass="label"
+                                LogoutAction="RedirectToLoginPage" LogoutPageUrl="~/frmHRMLogin.aspx" />
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <asp:Image ID="imgEmpBanner" runat="server" Width="100%" Height="100px" ImageUrl="~/Sources/images/InnerBanner.jpg" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <ul id="nav">
+                    <li class=""><a href="../EmployeeProfile/frmEmployeeDetails.aspx">Basic Details</a>
+                        <ul>
+                            <li><a href="../EmployeeProfile/frmEmpEduProInfo.aspx">Edu. & Prof.</a></li>
+                            <li><a href="../EmployeeProfile/frmEmployeeRelative.aspx">Family Members</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../EmployeeProfile/frmEmpCareerProgression.aspx">Career Progression</a>
+                        <ul>
+                            <li><a href="../EmployeeProfile/frmEmpManageResponsibility.aspx">Manage Responsibility</a></li>
+                            <li><a href="../EmployeeProfile/frmEmpAcceptResignationReq.aspx">Accept Resignation Request</a></li>
+                            <li><a href="../EmployeeProfile/frmEmpResignationForm.aspx">Resignation Form</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Salary</a>
+                        <ul>
+                            <li>
+                                <a href="../EmployeeProfile/frmEmpWiseSalaryInd.aspx">Salary Info</a>
+                            </li>
+                            <li>
+                                <a href="../EmployeeProfile/frmSalaryComponentSummary.aspx">Salary Component Summary</a>
+                            </li>
+                             <li>
+                                <a href="../EmployeeProfile/frmPFContribution.aspx">PF Contribution</a>
+                            </li>
+                        </ul> 
+                    </li>
+                    <li><a href="#">Leave</a>
+                        <ul>
+                            <li>
+                                <a href="../EmployeeProfile/frmEmployeeLeaveManagement.aspx">Leave Request & Report</a>
+                            </li>
+                               <li>
+                                <a href="../EmployeeProfile/frmOutOfOfficeRequest.aspx">Out Of Office Request</a>
+                            </li>
+                             <li>
+                                <a href="../EmployeeProfile/frmOutOfOfficePendingReqApproval.aspx">Out Of Office Request Approval</a>
+                            </li>
+                            <li>
+                                <a href="../EmployeeProfile/frmCancelLeaveRequest.aspx">Cancel Leave Request</a>
+                            </li>
+                            <li>
+                                <a href="../EmployeeProfile/frmApplyForApprovedLeaveRejection.aspx">Apply For Rejection of Approved Leave</a>
+                            </li>
+                            <li>
+                                <a href="../EmployeeProfile/frmEmpAttendanceStatus.aspx">Attendance Status</a>
+                            
+                            </li>
+                            <li><a href="../EmployeeProfile/frmEmpAbsentReport.aspx">Absent Report</a> </li>
+                        </ul>
+                    </li>
+                    <li><a href="#">HR-Services</a>
+                        <ul>
+                            <li><a href="../EmployeeProfile/frmHRServiceRequest.aspx">Service Request</a></li>
+                            <%--  <li><a href="../EmployeeProfile/frmResourceReq.aspx">Resource Requirement</a></li>--%>
+                        </ul>
+                    </li>
+                    <li><a href="#">Benefit</a>
+                        <ul>
+                            <li><a href="../EmployeeProfile/frmLoanApplication.aspx">Loan Application</a></li>
+                            <li><a href="../EmployeeProfile/frmApproveLoanApp.aspx">Approve Loan App.</a></li>
+                            <li><a href="../EmployeeProfile/frmEmpLoanAccounts.aspx">Benfit/Loan</a></li>
+                            <li><a href="../EmployeeProfile/frmInsuranceInfo.aspx">Insurance Info</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../EmployeeProfile/frmEMPTrainingInfo.aspx">Training</a></li>
+                    <li><a href="../EmployeeProfile/EmpJD.aspx">JD</a></li>
+                    <li><a href="../EmployeeProfile/frmEmpTakeExam.aspx">Exam</a></li>
+                    <li><a href="../EmployeeProfile/frmEmpEvaluation.aspx">Evaluation</a>
+                        <ul>
+                            <li><a href="../EmployeeProfile/frmEvaluateSubordinate.aspx">Evaluate Subordinate</a></li>
+                            <li><a href="../EmployeeProfile/frmAssessMyEvaluation.aspx">Assess My Evaluation</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../EmployeeProfile/frmIssueLetter.aspx">Documents</a></li>
+                    <li><a href="../EmployeeProfile/frmEmpChangePassword.aspx">Change Password</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 25%" valign="top">
+                <table style="width: 100%;">
+                    <tr>
+                        <td valign="top">
+                            <asp:Panel ID="pnlEmpSummary" runat="server" BorderWidth="0px">
+                                <div id="divEmpDetails" class="selector">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td align="center" colspan="2">
+                                                <h2>
+                                                    EMPLOYEE DETAILS</h2>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center">
+                                                <asp:Image ID="imgEmployee" class="magnify" data-magnifyby="4" runat="server" Height="150px"
+                                                    CssClass="img" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center" class="label">
+                                                Name:
+                                                <asp:Label ID="lblEmployeeName" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" align="center" class="label">
+                                                Employee ID:
+                                                <asp:Label ID="lblEmployeeID" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                            </td>
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Official Designation:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblOfficialDesignation" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Functional Designation:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblFunctionalDesignation" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Department:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblDepartment" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Supervisor Name:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblSupervisorName" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Employee Type:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblEmployeeType" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Service Length:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblServiceLength" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Location:
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblLocation" runat="server" CssClass="label"></asp:Label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Candidate Profile
+                                            </td>
+                                            <td>
+                                                <asp:HyperLink ID="hpLnkCanProfile" runat="server" CssClass="rbdText" Target="_blank">View</asp:HyperLink>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Progression
+                                            </td>
+                                            <td>
+                                                <asp:LinkButton ID="lnkBtnEmpTransitionHistory" runat="server" CssClass="rbdText">Transition History</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                Skill Set
+                                            </td>
+                                            <td>
+                                                <asp:LinkButton ID="lnkBtnEmpSkillSet" runat="server" Font-Bold="True" ForeColor="#CC00FF">Exam Performance</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="label">
+                                                COC
+                                            </td>
+                                            <td>
+                                                <asp:LinkButton ID="lnkBtnCOC" runat="server" Font-Bold="True" ForeColor="#CC0000">View</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </asp:Panel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Panel ID="pnlAttendance" runat="server" BorderWidth="0px">
+                                <div id="divEmpAttendance" class="selector">
+                                    <table style="width: 100%;">
+                                        <tr align="center">
+                                            <td>
+                                                <h3>
+                                                    ATTENDANCE SUMMARY</h3>
+                                            </td>
+                                        </tr>
+                                        <tr align="center">
+                                            <td>
+                                                <asp:GridView ID="grdAttendanceSummary" runat="server">
+                                                </asp:GridView>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </asp:Panel>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Panel ID="pnlPerformanceGrade" runat="server" BorderWidth="0px">
+                                <div id="divEmpPerformance" class="selector">
+                                    <table style="width: 100%;">
+                                        <tr align="center">
+                                            <td>
+                                                <h3>
+                                                    PERFORMANCE GRADE</h3>
+                                            </td>
+                                        </tr>
+                                        <tr align="center">
+                                            <td>
+                                                <asp:GridView ID="grdPerformanceGrade" runat="server">
+                                                </asp:GridView>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </asp:Panel>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 73%" valign="top">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

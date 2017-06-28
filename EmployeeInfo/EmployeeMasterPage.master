@@ -1,0 +1,60 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/HRMMaster.master" AutoEventWireup="false"
+    CodeFile="EmployeeMasterPage.master.vb" Inherits="EmployeeInfo_EmployeeMasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table style="width: 100%;">
+         <tr>
+            <td align="left" valign="top">
+                &nbsp;
+               <asp:Menu ID="Menu1" runat="server" BackColor="#B5C7DE" DynamicHorizontalOffset="2"
+                    Font-Names="Verdana" Font-Size="0.8em" ForeColor="#284E98" StaticSubMenuIndent="10px">
+                    <StaticSelectedStyle BackColor="#507CD1" />
+                    <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <DynamicHoverStyle BackColor="#284E98" ForeColor="White" />
+                    <DynamicMenuStyle BackColor="#B5C7DE" />
+                    <DynamicSelectedStyle BackColor="#507CD1" />
+                    <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                    <StaticHoverStyle BackColor="#284E98" ForeColor="White" />
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeBasicInfo.aspx" Text="BasicInformation"
+                            Value="Register User" ImageUrl="~/icons/icons/can_basic.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeEducationInfo.aspx" Text="EducationInformation"
+                            Value="Make Question" ImageUrl="~/icons/icons/can_edu_Info.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeExperienceInfo.aspx" Text="ExperienceInformation"
+                            Value="Exam Definition" ImageUrl="~/icons/icons/can_exp.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeTrainingInfo.aspx" Text="TrainingInformation"
+                            Value="Making Exam Paper" ImageUrl="~/icons/icons/can_tra.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeProCerti.aspx" Text="ProfessionalCertification"
+                            Value="Take Exam" ImageUrl="~/icons/icons/can_procer.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeDetailView.aspx" Text="Employee Detail View"
+                            Value="Take Exam" ImageUrl="~/icons/icons/emp_detail.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/frmEmpRelatives.aspx" Text="Relative Info"
+                            Value="Take Exam" ImageUrl="~/icons/icons/family.png"></asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/EmployeeInfo/EmployeeJD.aspx"  Text="Employee JD"
+                            Value="Take Exam" ImageUrl="~/icons/icons/JobDescription_02.png"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </td>
+            <td valign="top">
+                &nbsp;
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+</asp:Content>

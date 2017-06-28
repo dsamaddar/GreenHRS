@@ -1,0 +1,1845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AutoComplete" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAQAAAAAAAAAAAAAQAAAAAQCACAAAAA=</HashCode>
+      <FileName>App_Code\AutoComplete.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCaesarCypher" Collapsed="true">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAgAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\clsCaesarCypher.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResult" Collapsed="true">
+    <Position X="2.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAhEAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>App_Code\clsResult.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Common" Collapsed="true">
+    <Position X="4" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCABAAAACAAAAAQwAAIACECEgAQhhgABAAAEASEAAAA=</HashCode>
+      <FileName>App_Code\Common.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="dalConn" Collapsed="true">
+    <Position X="5.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\dalConn.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cldJDAssignDataAccess" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\cldJDAssignDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsAbatementRatioDataAccess" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsAbatementRatioDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsAppliedJobDataAccess" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsAppliedJobDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBankDataAccess" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsBankDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBenefitTypeDataAccess" Collapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAgAAAAAAIAAAAAAAAEAYAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsBenefitTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBranchDataAccess" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsBranchDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBranchTransferDataAccess" Collapsed="true">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>App_Code\DataAccess\clsBranchTransferDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCanBasicDataAccess" Collapsed="true">
+    <Position X="28.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAACAAAAAAAAAEACCAQEAIAAIAABCAAAAAaAiAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsCanBasicDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCandidateMailInfoDataAccess" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAgAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsCandidateMailInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCandidateResponseDataAccess" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAQAAAAAAQAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsCandidateResponseDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCanEduDataAccess" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIgGaAAAQIkAAKEAIAhAASAEQAABECADAIQBFIAgACA=</HashCode>
+      <FileName>App_Code\DataAccess\clsCanEduDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCanRecruitmentTagDataAccess" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAQAgAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsCanRecruitmentTagDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsChartOfAccountsDataAccess" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAQAAAAAQAAAAAAAAAAEAAAAEAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsChartOfAccountsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsComponentDefinitionDataAccess" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAEAAAAAAUAEAAABAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsComponentDefinitionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsConfirmationEvaluationDataAccess" Collapsed="true">
+    <Position X="23.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAIAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsConfirmationEvaluationDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsContactUsDataAccess" Collapsed="true">
+    <Position X="26.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAQAAAQAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsContactUsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsContractRenewalDataAccess" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAEAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsContractRenewalDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCourseLevelDataAccess" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsCourseLevelDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCVSelectionDataAccess" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CJAAACAAAEIAmARgBEEAAQiAIECIAAABAIAAABAAACE=</HashCode>
+      <FileName>App_Code\DataAccess\clsCVSelectionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDepartmentDataAccess" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAgAAAIA=</HashCode>
+      <FileName>App_Code\DataAccess\clsDepartmentDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDeptTransferDataAccess" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAQA=</HashCode>
+      <FileName>App_Code\DataAccess\clsDeptTransferDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDistrictDataAccess" Collapsed="true">
+    <Position X="18" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAAAQAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsDistrictDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDocumentListDataAccess" Collapsed="true">
+    <Position X="21.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAgAAAQIAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsDocumentListDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDocumentTypeDataAccess" Collapsed="true">
+    <Position X="25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAQEAgAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsDocumentTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpBasicProfileDataAccess" Collapsed="true">
+    <Position X="26.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgAIAAAAAEAAAAAAIAAQAAYAAAAABAAAAoCMABAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpBasicProfileDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpEvalInfoDataAccess" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAQAAAAAAAAAQAAAAAAAEAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpEvalInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpJDAssignDataAccess" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpJDAssignDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpJDExceptionDataAccess" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpJDExceptionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpKeyResDataAccess" Collapsed="true">
+    <Position X="14.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpKeyResDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpKPIDataAccess" Collapsed="true">
+    <Position X="18" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpKPIDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpLoanAccountDataAccess" Collapsed="true">
+    <Position X="21.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAEAAAAAQAAAAAAAAAgAACAAAAAAEA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpLoanAccountDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployeeAllInfoDataAccess" Collapsed="true">
+    <Position X="25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEQAAAAQkAgIEAAABAAQAEBAAAACAJAAAAHJAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmployeeAllInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployeeBasicInfoDataAccess" Collapsed="true">
+    <Position X="26.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABQIAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmployeeBasicInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployeeInfoDataAccess" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CDAAIBAQKAAgAAACAAACAwQRABgAAAJAohAAAEIIRAE=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmployeeInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployeeJDDataAccess" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAACAAAAAAAAAAAAQAAUAAQAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmployeeJDDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployementdataAccess" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAQAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmployementdataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpRelativesDataAccess" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAFAAAgAAAAAEAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpRelativesDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpResponsibilityDataAccess" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAII=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpResponsibilityDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpSalaryDataAccess" Collapsed="true">
+    <Position X="18" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAgAAABAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpSalaryDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpSalSummaryDataAccess" Collapsed="true">
+    <Position X="21.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAABAAQAAAAAAAAMAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpSalSummaryDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpTrngDataAccess" Collapsed="true">
+    <Position X="25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QEAAAAAAQAAAAAAAAAAAAQIAEAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpTrngDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpWiseComponentDataAccess" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAATAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEmpWiseComponentDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEntryPointDataAccess" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEntryPointDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEvaluationGradingDataAccess" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEvaluationGradingDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEvaluationGroupDataAccess" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>App_Code\DataAccess\clsEvaluationGroupDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEvaluationSummaryDataAccess" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAABAAAAAAQAAAAAAAAAAAAAAAgwAgAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsEvaluationSummaryDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamDataAccess" Collapsed="true">
+    <Position X="16.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAMGAAAAAAAAACEUQQSAEAUAAAAAAAECCAAAAI=</HashCode>
+      <FileName>App_Code\DataAccess\clsExamDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamPaperDataAccess" Collapsed="true">
+    <Position X="21.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsExamPaperDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamWiseGradingData" Collapsed="true">
+    <Position X="23.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsExamWiseGradingData.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamWiseSubjectData" Collapsed="true">
+    <Position X="28.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsExamWiseSubjectData.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExternalTestScoreDataAccess" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAEAAAAAAAAAAAQAAAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsExternalTestScoreDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExternalTestTypeDataAccess" Collapsed="true">
+    <Position X="9.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAEAAAAIAAAAAAgAIAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsExternalTestTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsFuelPriceDataAccess" Collapsed="true">
+    <Position X="12.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>App_Code\DataAccess\clsFuelPriceDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsFunctionalDesigHistDataAccess" Collapsed="true">
+    <Position X="16.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsFunctionalDesigHistDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsGeneralLoanDataAccess" Collapsed="true">
+    <Position X="19.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsGeneralLoanDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsGradingSystemDataAccess" Collapsed="true">
+    <Position X="23.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEADAAAAAQAAAKAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsGradingSystemDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsGradSysTypeDataAccess" Collapsed="true">
+    <Position X="26.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAIAAAABAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsGradSysTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsHolidayDataAccess" Collapsed="true">
+    <Position X="28.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAASAABAAAAAAAAAAAQAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsHolidayDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsHRServiceRequestDataAccess" Collapsed="true">
+    <Position X="4" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAEAAEAAgAQAAAAAAAAAAAABAAAAAAAg=</HashCode>
+      <FileName>App_Code\DataAccess\clsHRServiceRequestDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsHRServicesDataAccess" Collapsed="true">
+    <Position X="7.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAQAAAAAAIAAAAABAAQABAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsHRServicesDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInsuranceInfoDataAccess" Collapsed="true">
+    <Position X="12.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAQAAIAAIAACAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsInsuranceInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntCandidateAssessmentDataAccess" Collapsed="true">
+    <Position X="16.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAQAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsIntCandidateAssessmentDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInterviewCandidateDataAccess" Collapsed="true">
+    <Position X="19.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgBAAAAAAAAEAAAgAAAQABgABAAIAQAAAAAAAQAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsInterviewCandidateDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInterviewPanelDataAccess" Collapsed="true">
+    <Position X="23.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQQAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>App_Code\DataAccess\clsInterviewPanelDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInterviewTeamDataAccess" Collapsed="true">
+    <Position X="26.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAQAAg=</HashCode>
+      <FileName>App_Code\DataAccess\clsInterviewTeamDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntGradeDataAccess" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAABCAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsIntGradeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntManQuestionDataAccess" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAIAAICAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsIntManQuestionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntmemberTypeDataAccess" Collapsed="true">
+    <Position X="7.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAQAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsIntmemberTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntPanelDataAccess" Collapsed="true">
+    <Position X="11" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>App_Code\DataAccess\clsIntPanelDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsJobCircularDataAccess" Collapsed="true">
+    <Position X="14.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgBAAAAAAAAAACAAAAAQEABABAAACAAAEACAAQAIA=</HashCode>
+      <FileName>App_Code\DataAccess\clsJobCircularDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsJobDescriptionDataAccess" Collapsed="true">
+    <Position X="18" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgIAAAEFAAgQAAIAAAAACAAABAABAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsJobDescriptionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsJobTypeDataAccess" Collapsed="true">
+    <Position X="21.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAEAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsJobTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLateAttendanceCauseDataAccess" Collapsed="true">
+    <Position X="26.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAQACAAAAAAAgAAAAAAAQAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsLateAttendanceCauseDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLeaveRequestDataAccess" Collapsed="true">
+    <Position X="0.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAgSAAoAoAAgAAAACACAQAAAoAAAACSAIggEAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsLeaveRequestDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLeaveTypeDataAccess" Collapsed="true">
+    <Position X="4" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAICAAkAAAAAAAAAAAAQAAAAAAAAAAAAAAACAAAAI=</HashCode>
+      <FileName>App_Code\DataAccess\clsLeaveTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLoanAmortizationData" Collapsed="true">
+    <Position X="5.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAIAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsLoanAmortizationData.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLoanApplicationDataAccess" Collapsed="true">
+    <Position X="9.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAEAAAAAgAAAAAAAAQICAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsLoanApplicationDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMailSettingsDataAccess" Collapsed="true">
+    <Position X="14.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAgAQAAAAQAgQCAQAAAAAAAAAAAAIAAAIA=</HashCode>
+      <FileName>App_Code\DataAccess\clsMailSettingsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMedOfficerDataAccess" Collapsed="true">
+    <Position X="19.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAIAAAAAAAAAgAAAAAQAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsMedOfficerDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMenuDataAccess" Collapsed="true">
+    <Position X="23.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAIAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsMenuDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMobileBenefitDataAccess" Collapsed="true">
+    <Position X="26.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAIAAQAgAAAACAAAAQAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsMobileBenefitDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsOrganizationInfoDataAccess" Collapsed="true">
+    <Position X="0.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAgAAAAAEAAAAACEAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsOrganizationInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsOrgBranchData" Collapsed="true">
+    <Position X="4" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAQAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsOrgBranchData.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsOutOfOfficeReqData" Collapsed="true">
+    <Position X="7.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAABQAAAAAAAAAAAAAAAQABAEQ=</HashCode>
+      <FileName>App_Code\DataAccess\clsOutOfOfficeReqData.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPausedExamStatusDataAccess" Collapsed="true">
+    <Position X="11" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAgAAAAQIAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsPausedExamStatusDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPerformanceFactorDataAccess" Collapsed="true">
+    <Position X="14.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACABAAAAAAAAABAAAAAAQAAAAAAAAAAAAARAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsPerformanceFactorDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPerformancePartDataAccess" Collapsed="true">
+    <Position X="18" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsPerformancePartDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPromotionHistoryDataAccess" Collapsed="true">
+    <Position X="23.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAIAAAAAICAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsPromotionHistoryDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsProvidentFundDataAccess" Collapsed="true">
+    <Position X="26.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAUAAAAAAAQAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsProvidentFundDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsQuestionDataAccess" Collapsed="true">
+    <Position X="0.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAgQAAAgAAAAQAAAAQAAIAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsQuestionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsQuestionPaperDataAccess" Collapsed="true">
+    <Position X="4" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAABQBAAAAAAAAAAIAACQGICABAAAEAAAAAAgAQgBA=</HashCode>
+      <FileName>App_Code\DataAccess\clsQuestionPaperDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRecruitmentProposalDataAccess" Collapsed="true">
+    <Position X="7.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAEAAAAAAAAAAAgQAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsRecruitmentProposalDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRecruitmentTypeDataAccess" Collapsed="true">
+    <Position X="11" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQQQEAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsRecruitmentTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRegisterDataAccess" Collapsed="true">
+    <Position X="14.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAEAAAAAAAEQABAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsRegisterDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRelativeTypeDataAccess" Collapsed="true">
+    <Position X="19.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAABAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsRelativeTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResignationDataAccess" Collapsed="true">
+    <Position X="23.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAEACAAAAAAgAAAAAAQBAAAAAABAAAAIAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsResignationDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResignationMailDataAccess" Collapsed="true">
+    <Position X="26.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsResignationMailDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResourceReqDataAccess" Collapsed="true">
+    <Position X="0.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsResourceReqDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRoleDataAccess" Collapsed="true">
+    <Position X="5.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAIAAAAAAAUAAAABAAAAAAAABAAAgAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsRoleDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRoleWiseComponentDataAccess" Collapsed="true">
+    <Position X="9.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAQAAAQAAAAAAAABCgAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsRoleWiseComponentDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSalaryProcessDataAccess" Collapsed="true">
+    <Position X="12.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABgQAAAAAAAAAAAQAEQACABAAAAIAAAAAAgAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsSalaryProcessDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSalGenPermissionDataAccess" Collapsed="true">
+    <Position X="16.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAEIAAAAQQAIAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsSalGenPermissionDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsScreeningInterviewDataAccess" Collapsed="true">
+    <Position X="19.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAABAAAIAAABAQAAgAAAAAABEAAACAAAAgA=</HashCode>
+      <FileName>App_Code\DataAccess\clsScreeningInterviewDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsScreeningInterviewSettingsDataAccess" Collapsed="true">
+    <Position X="21.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAQAgAAACAAAAAQAAAAAAAAQ=</HashCode>
+      <FileName>App_Code\DataAccess\clsScreeningInterviewSettingsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsServiceTypeDataAccess" Collapsed="true">
+    <Position X="26.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAQAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsServiceTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSMSServiceDataAccess" Collapsed="true">
+    <Position X="0.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIgEAAAAAFAAAABAAAkAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsSMSServiceDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSubjectsDataAccess" Collapsed="true">
+    <Position X="4" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAQAAAQAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>App_Code\DataAccess\clsSubjectsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSupervisorChangeDataAccess" Collapsed="true">
+    <Position X="9.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAQAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsSupervisorChangeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTaxAdvAdjHistoryDataAccess" Collapsed="true">
+    <Position X="12.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTaxAdvAdjHistoryDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTaxAdvanceDataAccess" Collapsed="true">
+    <Position X="16.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTaxAdvanceDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTaxRateDataAccess" Collapsed="true">
+    <Position X="19.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAQAAAAACAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTaxRateDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrainingInfoDataAccess" Collapsed="true">
+    <Position X="23.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAQAAEIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTrainingInfoDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrainingTypeDataAccess" Collapsed="true">
+    <Position X="0.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAABAAAAAIAAQAIAAAAAAAAAAAAAEIAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTrainingTypeDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTransportAllowanceDataAccess" Collapsed="true">
+    <Position X="4" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQACAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTransportAllowanceDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrngSubjectDataAccess" Collapsed="true">
+    <Position X="7.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAQEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsTrngSubjectDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsULCBankAccDataAccess" Collapsed="true">
+    <Position X="9.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAACAQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsULCBankAccDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsULCBranchDataAccess" Collapsed="true">
+    <Position X="14.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAAAQIAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsULCBranchDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsUserAttendanceDataAccess" Collapsed="true">
+    <Position X="18" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iABEJAQCQAEAEAAAAQAApSAAACAAAAABAAAAAQAAIgQ=</HashCode>
+      <FileName>App_Code\DataAccess\clsUserAttendanceDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsUserMessageDataAccess" Collapsed="true">
+    <Position X="21.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAAQAQAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsUserMessageDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsUserWiseRoleDataAccess" Collapsed="true">
+    <Position X="25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAACAABAQAAAAgAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsUserWiseRoleDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsVehicleBenefitDataAccess" Collapsed="true">
+    <Position X="28.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQIAAIAAAAAAAQIAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsVehicleBenefitDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsVoucherDetailsDataAccess" Collapsed="true">
+    <Position X="2.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\clsVoucherDetailsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmplIDGenerationDataAccess" Collapsed="true">
+    <Position X="9.25" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgBAAAAAAAAAAAAAAAQABAQAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\EmplIDGenerationDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmployeeSettingsDataAccess" Collapsed="true">
+    <Position X="11" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAggAAIQAIEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\DataAccess\EmployeeSettingsDataAccess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CanBasicInfo" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BGgLDDKAmQiegcCGKJCVrg5AySGRADBmaJBhAhREiDk=</HashCode>
+      <FileName>App_Code\EntityClass\CanBasicInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CanEduInfo" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIBACAAAQAQAAAACAAQACBABABZgAAAwCESBAAI=</HashCode>
+      <FileName>App_Code\EntityClass\CanEduInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBank" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAIAEABCAEABAAAAAADAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsBank.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBenefitType" Collapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAADIACARAEAAEAwCACAEABACAAACASIoQBAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsBenefitType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBranch" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAABASAAAAgAAIAEABCAEAAAAAAAACAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsBranch.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBranchTransfer" Collapsed="true">
+    <Position X="21.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAIFwAAAABIABAAAAEAAAQGgECAAAQAIAACCAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsBranchTransfer.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsBusinessExGrading" Collapsed="true">
+    <Position X="25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAAAAACAAAgAAAAwFA0CAAAgoKAAAAQASAEAAAQg=</HashCode>
+      <FileName>App_Code\EntityClass\clsBusinessExGrading.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCandidateMailInfo" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAEAAAAAAAAEAAIGAAAAAAAQAAAEABAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsCandidateMailInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCandidateResponse" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAKAAAAQBACSAAAAAgAACAgAAAQBAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsCandidateResponse.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCanRecruitmentTag" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAACAAAAAAAAAkACCAAAgAAEACgIAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsCanRecruitmentTag.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCanRef" Collapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAUALAAAAAAAAAAYEQBABEAAgASAAAACAAAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsCanRef.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsChartOfAccounts" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAADIAAAAAAAAEAECAAgQAAACAQAAQAAgBAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsChartOfAccounts.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsComponentDefinition" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AmBgABACADICAAAqAAAEACCAAACAAAKCBAIgCAQBIAk=</HashCode>
+      <FileName>App_Code\EntityClass\clsComponentDefinition.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsConfirmationEvaluation" Collapsed="true">
+    <Position X="21.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAB0AAQAAGAFgCAAEABAQCgACAAgAAAAAgCQg=</HashCode>
+      <FileName>App_Code\EntityClass\clsConfirmationEvaluation.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsContactUs" Collapsed="true">
+    <Position X="25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAAgCAEAAAAIAQAABEQgAAAAAAAIAEAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsContactUs.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsContractRenewal" Collapsed="true">
+    <Position X="28.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAACAB0ABAAACABAAAAEABAQCgAiCAAAAAAAADAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsContractRenewal.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCourseLevel" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAIAAAAAEAACAAAAAQAgAACAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsCourseLevel.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsCVSelection" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAAAAAAogQggiIACAQCAEEAKAAIABEADAACAUAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsCVSelection.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDepartmentInfo" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAiAIgAAAEIAEAACAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsDepartmentInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDeptTransfer" Collapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAAAFwAAAABAABAABAEAAAQCgECAAQAAIAAACgg=</HashCode>
+      <FileName>App_Code\EntityClass\clsDeptTransfer.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDistrict" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAMQAAAAAAAAAAAAAAgAAAAQAEAABAQAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsDistrict.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDocumentList" Collapsed="true">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAMAiACQAAQAEAAGIIAQAAAQACAAIAABAIgA=</HashCode>
+      <FileName>App_Code\EntityClass\clsDocumentList.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsDocumentType" Collapsed="true">
+    <Position X="23.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAAgAAABCAAACQAEAAEAADAAQIAAAAACCAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsDocumentType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpEduInfo" Collapsed="true">
+    <Position X="28.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAIBACAAAQAQAAAACAAQACBABABZgAAAwCESBAAI=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpEduInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpEvalInfo" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAIAAAAAAAAUQBEAAAACAAAABQgABAAEQAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpEvalInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpExpInfo" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAAAgAAAwAAAAAGAAAAhAABAAgBBAEAEA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpExpInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpJDAssign" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgJAAACAAAAgAAAAEQAAAEEAAAQEAAAAAAAABAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpJDAssign.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpJDException" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EoBAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAABAgAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpJDException.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpKeyRes" Collapsed="true">
+    <Position X="12.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgBAAAAAAAAgAAAAAAAAAQAAAAAEAAAAAEAQAAAAQQA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpKeyRes.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpKPI" Collapsed="true">
+    <Position X="16.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgBAAAAACAAAAAAAAAAAAAQAAAAEAQAAAAAAAAAABAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpKPI.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpLoanAccount" Collapsed="true">
+    <Position X="19.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEoAACYAALIQCAAwQAAEACCACEEAAEACAACAyIgABAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpLoanAccount.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployee" Collapsed="true">
+    <Position X="23.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAMCABAAAGAABAggAIAAAFAAABBAAgAAAxGQAASEQAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmployee.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployeeInfo" Collapsed="true">
+    <Position X="28.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIYABKEQ7nAkkwRAKIiAFs6EI0RGICCMjSR4IAUFEw=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmployeeInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployeeJD" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EoJAAAGAABAgAAAAEUAAAEEAAAQEAAAABAAABAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmployeeJD.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmployement" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAQCoAAgCABAAAAgAAAAAAAgAAAgAQAAgAgABA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmployement.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpProCerti" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAAgAAAAAAgAAAIAAAAAAAIAABAAABAoAAAEACA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpProCerti.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpResponsibility" Collapsed="true">
+    <Position X="12.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAACAAqAggKBACAAMgBGAAQQAAAiAAAAAAAAIAAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpResponsibility.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpSalary" Collapsed="true">
+    <Position X="16.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAACAAACAICABIEAJEACCBAAAgAAIAJAAAAMAAAAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpSalary.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpSalSummary" Collapsed="true">
+    <Position X="19.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ARaAUCAQE+QEgghAAQYAABGAmQQgAohAGSCRFJCAFAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpSalSummary.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpTrainingInfo" Collapsed="true">
+    <Position X="23.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAEAAAAAAgAAAAEAQBAAAIQABAAAEAoAAAEAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpTrainingInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpTrngInfo" Collapsed="true">
+    <Position X="26.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBISAAAkATAAAAwhhMI2ACAoQhLEUAACIUgACAqgBwg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpTrngInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEmpWiseComponent" Collapsed="true">
+    <Position X="28.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AqJgABAIACICAAAqEBEEACCAAACAAAICBgIgCAQBJAk=</HashCode>
+      <FileName>App_Code\EntityClass\clsEmpWiseComponent.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEvaluationGrading" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAQAAAECAAAACAEAAEAACAAEAAAQAAIAyAAQAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEvaluationGrading.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEvaluationGroup" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAAAAAACAAAAgAEAAEAACAAAAAAAAAABAAAAAAQAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEvaluationGroup.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsEvaluationSummary" Collapsed="true">
+    <Position X="11" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAMAAAAMAIAIBCAAEAACAAAgCAACAAAgARAAAYAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsEvaluationSummary.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExam" Collapsed="true">
+    <Position X="14.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ALAAQBAogDAAAACIERAEAACEARVFgAUACABUAECAAog=</HashCode>
+      <FileName>App_Code\EntityClass\clsExam.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamInfo" Collapsed="true">
+    <Position X="18" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIEAAAAAACAAAAgAEACEAACSAAAAAAAAAAAAAgAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExamInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamPaper" Collapsed="true">
+    <Position X="19.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAACAAASAAAAACEBAEAASAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExamPaper.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamWiseGradingSystem" Collapsed="true">
+    <Position X="25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCUAAAAgACAEAAEYAAAEABCAAAEJAAAAAAAAAACAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExamWiseGradingSystem.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamWiseSubject" Collapsed="true">
+    <Position X="26.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAECACAAAKAQAEAASEAAFJAAQCACAQACCACgg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExamWiseSubject.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExamWiseSubjects" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAECACAAAKAQAEAASEAAFBAAQCAAAQAACAAgg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExamWiseSubjects.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExperienceInfo" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAASAAAAUACAAgAAAwCAAAIGAAQAhAAAAAgABAEAEE=</HashCode>
+      <FileName>App_Code\EntityClass\clsExperienceInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExternalTestScore" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAACBKAAACAAACEUEACIAQAAAACEAgAIAEAggIg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExternalTestScore.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsExternalTestType" Collapsed="true">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAgAAAACABAAAAEAAEEACAAQAAAAAIAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsExternalTestType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsFuelPrice" Collapsed="true">
+    <Position X="11" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABCAAAAAAAAAEAAGAAIQAIAAAAAAAAABAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsFuelPrice.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsFunctionalDesigHist" Collapsed="true">
+    <Position X="14.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAQAEAB8AAACACABAAAAEAAAQCgACAIQAACAAACAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsFunctionalDesigHist.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsGeneralLoan" Collapsed="true">
+    <Position X="18" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEICEAAAgKAYCCJAAAAUICKAAIQAAAAEAACBCAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsGeneralLoan.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsGradingSystem" Collapsed="true">
+    <Position X="21.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CCUAAAAggCEUAAAYAAAEABCAAAEAAAAAAAQAgAAAAIg=</HashCode>
+      <FileName>App_Code\EntityClass\clsGradingSystem.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsGradSysType" Collapsed="true">
+    <Position X="25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAgCAAAAAAAAAEAACAAAAAEAAAAAQAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsGradSysType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsHolidays" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAAAAIAAAEAgQAAAAABAAIAAgAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsHolidays.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsHRServiceRequest" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJIACFAQKgAgCAISDCEoAmFCIwBQAJAAQAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsHRServiceRequest.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsHRServices" Collapsed="true">
+    <Position X="5.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAEAABAACAAAAAQEAAEgACAAIAAAABAAAAABAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsHRServices.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsImageUpLoader" Collapsed="true">
+    <Position X="9.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAIAAAQAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsImageUpLoader.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInsuranceInfo" Collapsed="true">
+    <Position X="11" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoAIAAEACIgAEAQBAAgAAEAAAgiEAgCAAAA4gAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsInsuranceInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntCandidateAssessment" Collapsed="true">
+    <Position X="14.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAgAEoAAgggABAcRACAwAgCAAIACAgABJICgAIA=</HashCode>
+      <FileName>App_Code\EntityClass\clsIntCandidateAssessment.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInterviewCandidate" Collapsed="true">
+    <Position X="18" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAASAAwygABDAEACCAAAIBAQBCACAJAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsInterviewCandidate.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInterviewPanel" Collapsed="true">
+    <Position X="21.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAAACAABAEACCAAAIAAQAAAAAAAAAAgAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsInterviewPanel.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsInterviewTeam" Collapsed="true">
+    <Position X="25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAAAAAAEBAEAACAAAAAAQAAAIAABAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsInterviewTeam.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntGrade" Collapsed="true">
+    <Position X="28.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAgAACAAAAAAECIEABSAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsIntGrade.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntManQuestion" Collapsed="true">
+    <Position X="2.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAABAACAAAAAAEAAEEACAAAAAAACEAAAAAAAACAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsIntManQuestion.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntMemberType" Collapsed="true">
+    <Position X="5.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAhAAACAAAACAEAAEAACAAAIAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsIntMemberType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsIntPanel" Collapsed="true">
+    <Position X="9.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAAACAABAEACCAAAIAAQAAAAAAAAAAgAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsIntPanel.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsJobCircular" Collapsed="true">
+    <Position X="12.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YoADgA8GCyACgwwglElWAEihAEnhAAQx+QxzCAAIiRg=</HashCode>
+      <FileName>App_Code\EntityClass\clsJobCircular.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsJobDescription" Collapsed="true">
+    <Position X="16.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAACAAAgAIAAAAEAAAAAAAAAAAAACAAIAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsJobDescription.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsJobType" Collapsed="true">
+    <Position X="19.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CIAAAAAAACAAAAAAEQAEQACAAAAAAAAABAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsJobType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsKeyResponsibility" Collapsed="true">
+    <Position X="23.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAQAAAAAAIAACAEAAAAAAQAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsKeyResponsibility.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLateAttendanceCause" Collapsed="true">
+    <Position X="25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAEAAAiABQAAAEAAEAACAAAAAAQAAAAIAAIBAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsLateAttendanceCause.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLeaveRequest" Collapsed="true">
+    <Position X="28.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAUAMAASAijwQAAAAAYQKQAJAACAIAAAAAAAIAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsLeaveRequest.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLeaveType" Collapsed="true">
+    <Position X="2.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAGEAAACAACAABkAAGAAiQAAAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>App_Code\EntityClass\clsLeaveType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsLoanApplication" Collapsed="true">
+    <Position X="7.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEJCAAEoBCCQiAggADkUIICgABgCQERCAQCAgEAAAYg=</HashCode>
+      <FileName>App_Code\EntityClass\clsLoanApplication.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMail" Collapsed="true">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAsABABAAAYACCAAJAAAAEEARQRACAAEBRAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsMail.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMailProperty" Collapsed="true">
+    <Position X="12.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIQgCIAAUCCAAAAIEAAAAAAAAAAAABkYAAAQAlBACYs=</HashCode>
+      <FileName>App_Code\EntityClass\clsMailProperty.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMailType" Collapsed="true">
+    <Position X="16.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAIAAACAAAAAAEAAEAAAAACAAAAgAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsMailType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMedicalOfficer" Collapsed="true">
+    <Position X="18" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAQAiEEAAAAEEIEAgGAAAAAAggAAYAAEAAgIAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsMedicalOfficer.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMenu" Collapsed="true">
+    <Position X="21.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAACAAACAAACAAAoAAAAABAAIAAAAAAAAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsMenu.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsMobileBenefit" Collapsed="true">
+    <Position X="25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIGAIAAhKIAiKAAIAEEIAOAAJBIAAAAAACCLAEBAAk=</HashCode>
+      <FileName>App_Code\EntityClass\clsMobileBenefit.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsOrganizationInfo" Collapsed="true">
+    <Position X="28.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAAAAAAAAAkAEyAAAIAAACCIMADQACAIAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsOrganizationInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsOrgBranch" Collapsed="true">
+    <Position X="2.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAABBASAAAAgAAAAEAAiAAAAAAAAAAAABAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsOrgBranch.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsOutOfficeReq" Collapsed="true">
+    <Position X="5.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICAAABAKAAQCgAAAgUAQKAAIACAFACAQAgAIIEAQg=</HashCode>
+      <FileName>App_Code\EntityClass\clsOutOfficeReq.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPausedExamStatus" Collapsed="true">
+    <Position X="9.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIBAAAAAIAAAAAAAYAAAAAAAAAAAAAAACAAAAgACAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsPausedExamStatus.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPerformanceFactor" Collapsed="true">
+    <Position X="12.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAQAAQACIAAgiEEAAEgACAAAAAAAAABQAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsPerformanceFactor.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPerformancePart" Collapsed="true">
+    <Position X="16.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAAAAAACAAAAAEEAAEAhCAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsPerformancePart.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsProfessionCerti" Collapsed="true">
+    <Position X="19.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBAAAAAgAAAAAAgAAAIAAAAAAAIAABAAABAoAAAEACA=</HashCode>
+      <FileName>App_Code\EntityClass\clsProfessionCerti.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsPromotionHistory" Collapsed="true">
+    <Position X="21.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAgAB0AAAAACAFACQAEAAIQCgACAAAAAAAACCIg=</HashCode>
+      <FileName>App_Code\EntityClass\clsPromotionHistory.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsProvidentFund" Collapsed="true">
+    <Position X="25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAIAAIAAIOAAACCAAQAEAAiAASgAAABACAABHAAQAAk=</HashCode>
+      <FileName>App_Code\EntityClass\clsProvidentFund.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsQuestion" Collapsed="true">
+    <Position X="28.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>boIKiCBBFGExAKKGFACPEMCIQAiuABAEKIAIIAAACCg=</HashCode>
+      <FileName>App_Code\EntityClass\clsQuestion.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsQuestionPaper" Collapsed="true">
+    <Position X="2.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMBEgEAGAMEAAwxAEbAAACMgICUhAAAAACABAIigEgE=</HashCode>
+      <FileName>App_Code\EntityClass\clsQuestionPaper.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRecruitmentProposal" Collapsed="true">
+    <Position X="5.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgACDEQCqAkgigABAkEkCCAAAACgAACIQQBAoCgAQo=</HashCode>
+      <FileName>App_Code\EntityClass\clsRecruitmentProposal.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRecruitmentType" Collapsed="true">
+    <Position X="9.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIABgAAAACAEAEAAEEBEAACAAIBAAAAAgYAAAQAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsRecruitmentType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRegister" Collapsed="true">
+    <Position X="12.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAACAAAACgABmAAEAIWAAiAAAEQgAACARAAAAAAACA=</HashCode>
+      <FileName>App_Code\EntityClass\clsRegister.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRelationType" Collapsed="true">
+    <Position X="16.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACAAAAAAMMAEAACAAAAAAAQAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsRelationType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRelatives" Collapsed="true">
+    <Position X="18" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEJAgBAAACIRAACAIIAEABCAEAAQCAAEgBAAABAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsRelatives.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResignation" Collapsed="true">
+    <Position X="21.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCIIIRAEAqACwyQAAAqEAEHAGQyVABgAAhAQgPQgBAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsResignation.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResignationMail" Collapsed="true">
+    <Position X="25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAgABAAAEABAACAAAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsResignationMail.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsResourceReq" Collapsed="true">
+    <Position X="28.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAKAAACAAACIEAASAIABAAAAAgIIAAgAABAo=</HashCode>
+      <FileName>App_Code\EntityClass\clsResourceReq.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRole" Collapsed="true">
+    <Position X="4" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAJAAAAAAAAIAoAQABACAAAABQSAEkAAMAgAAAE=</HashCode>
+      <FileName>App_Code\EntityClass\clsRole.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsRoleWiseComponent" Collapsed="true">
+    <Position X="7.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIACAAAIgAAAAEAACAAAAAAAAAAEAAEAAABAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsRoleWiseComponent.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSalaryProcess" Collapsed="true">
+    <Position X="11" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAKAACAIACAAAAAAQQIBAEEAAAQBAAAICQAABpAAAAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsSalaryProcess.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSalGenPermission" Collapsed="true">
+    <Position X="14.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIIAAAAAACAAAAgAEEAEAICAAAAAAAAAAAAAAACAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsSalGenPermission.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsScreeningInterview" Collapsed="true">
+    <Position X="18" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gABgAAECAIACACkBAAgABiAgAhCwQgADBIREpAAAAAk=</HashCode>
+      <FileName>App_Code\EntityClass\clsScreeningInterview.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSearchOrgStructure" Collapsed="true">
+    <Position X="23.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIgCABAAAoEQgAiAkEABgAAAAAAAQACAAhYAgoCAAAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsSearchOrgStructure.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsServiceType" Collapsed="true">
+    <Position X="25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAAAAACAAAgEAEAAEAACAAAAAAAAAAAAACAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsServiceType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSMSService" Collapsed="true">
+    <Position X="28.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAgwHAgAABQAQAJAABApAUoAAAABoAEAikEQBYICBA=</HashCode>
+      <FileName>App_Code\EntityClass\clsSMSService.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSubjects" Collapsed="true">
+    <Position X="2.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAhAAAAECAAAAACEAAEAACAAAAAAAAAACAAACAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsSubjects.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSummaryJobCircular" Collapsed="true">
+    <Position X="5.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAQRAgAAAAAEAAAAIAAAAAAAAEIAAAAAACAEAAI=</HashCode>
+      <FileName>App_Code\EntityClass\clsSummaryJobCircular.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsSupervisorChange" Collapsed="true">
+    <Position X="7.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAFwAAAABAABAAAAEIAAQCgECAAAAAIAAACBg=</HashCode>
+      <FileName>App_Code\EntityClass\clsSupervisorChange.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTaxAdvAdjHistory" Collapsed="true">
+    <Position X="11" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEQAAwCAAIQAAAAAEAACAAAAAAACAAAIAIAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsTaxAdvAdjHistory.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTaxAdvance" Collapsed="true">
+    <Position X="14.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAwKAgACAAYQAEACCAAAAAAAAAAAYAAIAAAAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsTaxAdvance.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTaxRate" Collapsed="true">
+    <Position X="18" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAEAAAACwQABCAEAQAAAABAAAAAAAQAgAiAACAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsTaxRate.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ClsTrainingInfo" Collapsed="true">
+    <Position X="21.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABQAAAEAAAAAAgAAAAEEQBAAAIQABAAAEAoAAAEAAA=</HashCode>
+      <FileName>App_Code\EntityClass\ClsTrainingInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrainingInformation" Collapsed="true">
+    <Position X="25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gBwAAEAEQCJCGIAACAg0AGigAgAQUAmxASgRAUCFRAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsTrainingInformation.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrainingTopic" Collapsed="true">
+    <Position X="26.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAABACAAAAAACAAAAAAACAAAEAAAAAgAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsTrainingTopic.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrainingType" Collapsed="true">
+    <Position X="28.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAACAAAAAAEAACAAAAAAAAQAQAAAAAABAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsTrainingType.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTransportAllowance" Collapsed="true">
+    <Position X="2.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAADAgAmAAgCgAAAAEAACAESAAAhAAAyAxoICkAAw=</HashCode>
+      <FileName>App_Code\EntityClass\clsTransportAllowance.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsTrngSubject" Collapsed="true">
+    <Position X="5.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAACAACAAgAAACAAEAACAAAAQEAAAAAgAAAAgAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsTrngSubject.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsULCBankAccount" Collapsed="true">
+    <Position X="11" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAACMAgAzACAAgAEAAGEADAEQAAAAiAACAAEABAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsULCBankAccount.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsULCBranch" Collapsed="true">
+    <Position X="12.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAKAAAAEAAJAEABCAAQAAAAAAAAABAIAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsULCBranch.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsUserAttendance" Collapsed="true">
+    <Position X="16.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAuAAAAABqpAAqgDQIBEAAkBJCAAABIAgAEgAAgEAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsUserAttendance.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsUserMessage" Collapsed="true">
+    <Position X="19.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIAIQEAgAAAgAABAERIAiAoIAAAAAAAUAAAIUAEACAA=</HashCode>
+      <FileName>App_Code\EntityClass\clsUserMessage.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsUserWiseRole" Collapsed="true">
+    <Position X="23.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAACAAAAAAACAUAACIAAAAEAAAAAAAAAAAAAg=</HashCode>
+      <FileName>App_Code\EntityClass\clsUserWiseRole.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsVehicleBenefit" Collapsed="true">
+    <Position X="26.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AOKTCAAAgKAI3CECBACcICKAAYQCAAAIAUDACiBDAA0=</HashCode>
+      <FileName>App_Code\EntityClass\clsVehicleBenefit.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="clsVoucherDetails" Collapsed="true">
+    <Position X="0.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAICICCJArAAgQhBAAAAAAAAEAABAACAAIACAICKCA4=</HashCode>
+      <FileName>App_Code\EntityClass\clsVoucherDetails.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EmpBasicInfo" Collapsed="true">
+    <Position X="7.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCqjCDKEkSEUg0iUDZKToSaA0TETgDSm17YWgBMkjC8=</HashCode>
+      <FileName>App_Code\EntityClass\EmpBasicInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebService" Collapsed="true">
+    <Position X="12.75" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAQAAAEQAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>App_Code\WebService.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

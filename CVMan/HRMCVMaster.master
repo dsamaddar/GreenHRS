@@ -1,0 +1,77 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/MasterPage.master" AutoEventWireup="false"
+    CodeFile="HRMCVMaster.master.vb" Inherits="CVMan_HRMCVMaster" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <style type="text/css">
+        .protected
+        {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+    <script language="javascript" type="text/javascript">
+
+        function onKeyDown() {
+            // current pressed key
+            var pressedKey = String.fromCharCode(event.keyCode).toLowerCase();
+
+            if (event.ctrlKey && (pressedKey == "c" ||
+                        pressedKey == "v")) {
+                // <strong class="highlight">disable</strong> key press porcessing
+                event.returnValue = false;
+            }
+
+        } // onKeyDown
+
+        function DisableCopyPaste() {
+            alert('This functionality has been disabled !');
+            window.clipboardData.clearData('Text'); //for cleaning up the clipboard
+            // Cancel default behavior
+            event.returnValue = false;
+        }
+
+    </script>
+
+    <script language="javascript" type="text/javascript">
+        window.history.forward(1);
+
+        document.oncontextmenu = function() { // Use document as opposed to window for IE8 compatibility
+            alert("This Function Is Not Allowed In ULC JOB Application Process.")
+            return false;
+        };
+    </script>
+
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table class="protected" style="width: 100%">
+        <tr>
+            <td align="left" valign="top" style="max-width: 25%">
+                <ul class="vertical fl" rel="ver1">
+                    <li><a href="~/CVMan/HRMCandidateBasicInfo.aspx" runat="server">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/icons/icons/can_basic.png" />Basic
+                        Information</a></li>
+                    <li><a id="A1" href="~/CVMan/CandidateExperienceInfo.aspx" runat="server">
+                        <asp:Image ID="Image3" runat="server" ImageUrl="~/icons/icons/can_exp.png" />Work
+                        Experience</a></li>
+                    <li><a href="~/CVMan/CandidateEducationInfo.aspx" runat="server">
+                        <asp:Image ID="Image2" runat="server" ImageUrl="~/icons/icons/can_edu_Info.png" />Education</a></li>
+                    <li><a href="~/CVMan/CandidateTrainingInfo.aspx" runat="server">
+                        <asp:Image ID="Image4" runat="server" ImageUrl="~/icons/icons/can_tra.png" runat="server" />Training</a>
+                    </li>
+                    <li><a href="~/CVMan/CandidateReferenceInfo.aspx" runat="server">
+                        <asp:Image ID="Image6" runat="server" ImageUrl="~/icons/icons/can_reference.png" />
+                        References</a></li>
+                    <li><a href="~/CVMan/CandidateCvView.aspx" runat="server">
+                        <asp:Image ID="Image7" runat="server" ImageUrl="~/icons/icons/can_view.png" runat="server" />
+                        CV Submission</a></li>
+                </ul>
+            </td>
+            <td align="center" valign="top" style="max-width: 75%">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>

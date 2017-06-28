@@ -1,0 +1,89 @@
+﻿.review
+{
+	background-color: #337ab7;
+	border-color: #2e6da4;
+	color: #fff;
+	height: 30px;
+	width: 100%;
+	font-size: 10pt;
+}
+
+.examassigned
+{
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+	color: #fff;
+	height: 30px;
+	width: 200px;
+	font-size: 10pt;
+}
+
+.examcompleted
+{
+	background-color: #5bc0de;
+	border-color: #46b8da;
+	color: #fff;
+	height: 30px;
+	width: 200px;
+	font-size: 10pt;
+}
+
+.preliminaryinterview
+{
+	background-color: #846206;
+	border-color: #846206;
+	color: #fff;
+	height: 30px;
+	width: 200px;
+	font-size: 10pt;
+}
+
+.panelinterview
+{
+	background-color: #d9534f;
+	border-color: #d43f3a;
+	color: #fff;
+	height: 30px;
+	width: 200px;
+	font-size: 10pt;
+}
+
+.pool
+{
+	background-color: #ad9bd5;
+	border-color: #ad9bd5;
+	color: #fff;
+	font-size: 10pt;
+	height: 30px;
+	width: 200px;
+}
+
+.offer
+{
+	background-color: #0000d4;
+	border-color: #0000d4;
+	color: #fff;
+	font-size: 10pt;
+	height: 30px;
+	width: 200px;
+}
+
+.joining
+{
+	background-color: #16cf6e;
+	border-color: #16cf6e;
+	color: #fff;
+	font-size: 10pt;
+	height: 30px;
+	width: 200px;
+}
+
+.btnMenu
+{
+	background-color: Gray;
+	border-color: Gray;
+	color: #fff;
+	height: 30px;
+	width: 100%;
+	font-size: 10pt;
+}

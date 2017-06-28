@@ -1,0 +1,82 @@
+﻿
+Partial Class LeaveManagement_frmForLeaveRecommendation
+    Inherits System.Web.UI.Page
+    Dim LeaveData As New clsLeaveRequestDataAccess()
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Session("UserName") = "" Or Session("UniqueUserID") = "" Then
+            Response.Redirect("~/frmHRMLogin.aspx")
+        End If
+
+        If Not IsPostBack Then
+            Dim EmployeeID As String
+            EmployeeID = Session("EmployeeID")
+
+            grdLeave.DataSource = LeaveData.fnGetLeaveRequestForApproval(EmployeeID, "ForRecommendation")
+            grdLeave.DataBind()
+
+            If grdLeave.Rows.Count = 0 Then
+                btnRecommend.Enabled = False
+                btnReject.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Protected Sub btnReject_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnReject.Click
+        Dim chk As System.Web.UI.WebControls.CheckBox
+        Dim lblLeaveReqID As System.Web.UI.WebControls.Label
+
+        Dim LeaveRequestID As String
+        Dim EmployeeID As String
+        EmployeeID = Session("EmployeeID")
+
+
+        For Each rw As GridViewRow In grdLeave.Rows
+            chk = rw.FindControl("chkSelect")
+            If chk.Checked = True Then
+                lblLeaveReqID = rw.FindControl("lblLeaveRequestID")
+                LeaveRequestID = lblLeaveReqID.Text
+
+                LeaveData.ChangeApplicationStatus(LeaveRequestID, "Rejected", EmployeeID)
+            End If
+        Next
+
+        grdLeave.DataSource = LeaveData.fnGetLeaveRequestForApproval(EmployeeID, "ForRecommendation")
+        grdLeave.DataBind()
+
+        If grdLeave.Rows.Count = 0 Then
+            btnRecommend.Enabled = False
+            btnReject.Enabled = False
+        End If
+    End Sub
+
+    Protected Sub btnApproved_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnRecommend.Click
+        Dim chk As System.Web.UI.WebControls.CheckBox
+        Dim lblLeaveReqID As System.Web.UI.WebControls.Label
+
+        Dim LeaveRequestID As String
+        Dim EmployeeID As String
+        EmployeeID = Session("EmployeeID")
+
+
+        For Each rw As GridViewRow In grdLeave.Rows
+            chk = rw.FindControl("chkSelect")
+            If chk.Checked = True Then
+                lblLeaveReqID = rw.FindControl("lblLeaveRequestID")
+                LeaveRequestID = lblLeaveReqID.Text
+                LeaveData.ChangeApplicationStatus(LeaveRequestID, "Recommended", "")
+            End If
+        Next
+
+        grdLeave.DataSource = LeaveData.fnGetLeaveRequestForApproval(EmployeeID, "ForRecommendation")
+        grdLeave.DataBind()
+
+        If grdLeave.Rows.Count = 0 Then
+            btnRecommend.Enabled = False
+            btnReject.Enabled = False
+        End If
+    End Sub
+
+
+End Class

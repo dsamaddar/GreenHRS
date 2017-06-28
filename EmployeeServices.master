@@ -1,0 +1,92 @@
+﻿<%@ Master Language="VB" MasterPageFile="~/HRMMaster.master" AutoEventWireup="false" CodeFile="EmployeeServices.master.vb" Inherits="EmployeeServices" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    <table style="width:100%;">
+        <tr align="center" style="height:50px" >
+            <td>
+                &nbsp;</td>
+            <td>
+                    &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr align="center" >
+            <td>
+                &nbsp;</td>
+            <td>
+                    <asp:Menu ID="HRMSubMenu" runat="server" CssClass="menu2" StaticSubMenuIndent="0px"
+                        StaticDisplayLevels="1" Orientation="Horizontal" runat="server" 
+                    DynamicSelectedStyle-BorderStyle="NotSet">
+                        <LevelMenuItemStyles>
+                            <asp:MenuItemStyle CssClass="level1" />
+                            <asp:MenuItemStyle CssClass="level2" />
+                            <asp:MenuItemStyle CssClass="level3" />
+                            <asp:MenuItemStyle CssClass="level4" />
+                        </LevelMenuItemStyles>
+                        <Items>
+                            <asp:MenuItem NavigateUrl="~/frmOrganizationStructure.aspx" 
+                                Text="Search Employee" Value="Organization Structure">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Edit Or Modify Employee" Value="Employee">
+                                <asp:MenuItem NavigateUrl="~/EmployeeInfo/frmEmployeeInfo.aspx" 
+                                    Text="Employee Input" Value="Employee Input"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/EmployeeInfo/Default2.aspx" Text="Employee CV" 
+                                    Value="Employee Info"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Job Description"
+                                Value="Job Description">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Training" Value="Training">
+                                <asp:MenuItem NavigateUrl="~/Training/frmTrainingAdvertisement.aspx" Text="Training Advertisement"
+                                    Value="Training Advertisement"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Training/frmTrainingInfo.aspx" Text="Training Information"
+                                    Value="Training Information"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/Training/frmTrainingSettings.aspx" Text="Training Settings"
+                                    Value="Training Settings"></asp:MenuItem>
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Leave Management" Value="Leave Management">
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmHoliday.aspx" 
+                                    Text="Manage Holidays" Value="Holiday">
+                                </asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLeaveSettings.aspx" Text="Leave Settings"
+                                    Value="Leave Settings"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLeaveRequest.aspx" Text="Leave Request"
+                                    Value="Leave Request"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmForLeaveRecommendation.aspx" 
+                                    Text="Leave Recommendation" Value="Leave Recommendation"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmForLeaveApproval.aspx" 
+                                    Text="Leave Approval" Value="Leave Approval"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/frmLeaveBalance.aspx" 
+                                    Text="Leave Balance" Value="Leave Balance"></asp:MenuItem>
+                                <asp:MenuItem NavigateUrl="~/LeaveManagement/QueryOnLeave.aspx" 
+                                    Text="Leave Report" Value="Leave Report"></asp:MenuItem>
+                            </asp:MenuItem>
+                        </Items>
+                    </asp:Menu>
+                </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+    </table>
+</asp:Content>
+

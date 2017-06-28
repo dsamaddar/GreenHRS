@@ -1,0 +1,4 @@
+clsCanBasicDataAccess.vb
+clsCanEduDataAccess.vb
+clsEmployeeInfoDataAccess.vb -- sharing
+clsJobCircularDataAccess.vb --sharing

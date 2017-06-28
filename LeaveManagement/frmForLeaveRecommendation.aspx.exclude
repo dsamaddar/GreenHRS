@@ -1,0 +1,70 @@
+﻿<%@ Page Language="VB" MasterPageFile="~/EmployeeServices.master" AutoEventWireup="false"
+    CodeFile="frmForLeaveRecommendation.aspx.vb" Inherits="LeaveManagement_frmForLeaveRecommendation"
+    Title="Leave Recommendation" Theme="CommonSkin" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <table align="center">
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:GridView ID="grdLeave" Font-Names="Arial" Font-Size="12px" runat="server" AutoGenerateColumns="False"
+                    DataKeyNames="LeaveRequestID" CellPadding="5" CellSpacing="3" AllowPaging="True"
+                    PageSize="20" EmptyDataText="No Records Available">
+                    <Columns>
+                        <asp:TemplateField HeaderText="LeaveRequestID" Visible="False">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="txtLeaveRequestID" runat="server" Text='<%# Bind("LeaveRequestID") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblLeaveRequestID" runat="server" Text='<%# Bind("LeaveRequestID") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Select">
+                            <HeaderTemplate>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:BoundField DataField="EmployeeName" HeaderText="Employee Name" SortExpression="EmployeeName" />
+                        <asp:BoundField DataField="LeaveFrom" HeaderText="Leave From" SortExpression="LeaveFrom" />
+                        <asp:BoundField DataField="LeaveTo" HeaderText="Leave To" ReadOnly="True" SortExpression="LeaveTo" />
+                        <asp:BoundField DataField="TotalDays" HeaderText="Total Days" ReadOnly="True" SortExpression="TotalDays" />
+                        <asp:BoundField DataField="TotalWorkingDays" HeaderText="Total Working Days" ReadOnly="True"
+                            SortExpression="TotalWorkingDays" />
+                        <asp:BoundField DataField="PurposeOfLeave" HeaderText="Purpose Of Leave" ReadOnly="True"
+                            SortExpression="PurposeOfLeave" />
+                        <asp:BoundField DataField="EmergencyAddress" HeaderText="Address" ReadOnly="True"
+                            SortExpression="EmergencyAddress" />
+                        <asp:BoundField DataField="EmergencyContactNo" HeaderText="Contact No" ReadOnly="True"
+                            SortExpression="EmergencyContactNo" />
+                        <asp:BoundField DataField="EntryDate" HeaderText="Requested Date" ReadOnly="True"
+                            SortExpression="EntryDate" />
+                        <asp:TemplateField HeaderText="Details">
+                            <ItemTemplate>
+                                <asp:ImageButton ImageUrl="~/img/details_icon.gif" Width="30px" OnClientClick='<%# Eval("LeaveRequestID","openWindow(""LeaveManagement/LeaveRequestDetail.aspx?LeaveRequestID={0}"",""Popup"",1000,1100);") %>'
+                                    ID="ImageButton1" runat="server" />
+                            </ItemTemplate>
+                            <%--PostBackUrl='<%#"~/LeaveManagement/LeaveRequestDetail.aspx?LeaveRequestID="+ Eval("LeaveRequestID")  %>'--%>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td align="center">
+                <asp:Button ID="btnRecommend" runat="server" Text="Recommend" OnClientClick="return confirm('Are you sure you want to Recommend selected items?');" />&nbsp;
+                <asp:Button ID="btnReject" runat="server" Text="Reject" OnClientClick="return confirm('Are you sure you want to Reject selected items?');" />
+            </td>
+        </tr>
+    </table>
+</asp:Content>

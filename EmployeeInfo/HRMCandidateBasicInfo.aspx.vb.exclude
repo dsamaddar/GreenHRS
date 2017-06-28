@@ -1,0 +1,783 @@
+﻿Imports System.IO
+Imports System.Web.UI
+Imports System.Drawing
+Imports System.Data
+
+Partial Class HRMCandidateBasicInfo
+    Inherits System.Web.UI.Page
+
+    Dim BasicData As New clsCanBasicDataAccess()
+    Dim Photo As String
+    Dim GImageID As String
+
+    Dim DocumentData As clsDocumentTypeDataAccess = New clsDocumentTypeDataAccess()
+    Dim DocumentListData As clsDocumentListDataAccess = New clsDocumentListDataAccess()
+    Public Shared PictureLocation As String = ""
+    Public Shared SignatureLocation As String = ""
+
+    Dim DocumentList As clsDocumentList = New clsDocumentList()
+
+    Protected Sub btnNext_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnNext.Click
+        Dim UserID As String
+        UserID = Session("LoginUserID")
+        Dim RegistrationID As String
+        'RegistrationID = Session("RegistrationID")
+        RegistrationID = Session("UniqueUserID")
+
+        Dim BasicInfo As New CanBasicInfo()
+        Dim CandidateID As String
+        CandidateID = ""
+
+        Dim CandidateName As String
+
+        CandidateName = txtName.Text
+
+        BasicInfo.FatherName = txtFatherName.Text
+        BasicInfo.FathersOccupation = ddlFathersOccupation.SelectedValue
+        BasicInfo.MotherName = txtMotherName.Text
+        BasicInfo.MothersOccupation = ddlMotherOccupation.SelectedValue
+        BasicInfo.SpouseName = txtSpouseName.Text
+        BasicInfo.SpouseOccupation = ddlSpouseOccupation.SelectedValue
+        BasicInfo.NoOfChildrenAge = txtNoChildren.Text
+        BasicInfo.SibblingsNameOccupation = txtSibblingsInfo.Text
+        BasicInfo.Gender = rdbtnGender.SelectedValue
+        BasicInfo.Nationality = ddlNationality.SelectedValue
+        BasicInfo.NIDNo = txtNID.Text
+        BasicInfo.PassportNo = txtPassportNo.Text
+
+        If BasicInfo.NIDNo = "" And BasicInfo.PassportNo = "" Then
+            MessageBox("Please Give Either NID No or Passport No")
+            Exit Sub
+        End If
+        BasicInfo.RelationshipStatus = ddlRelStatus.SelectedValue
+
+        BasicInfo.BloodGroupID = ddlBloodGrp.SelectedValue
+
+        If ddlRelStatus.SelectedIndex = 0 Then
+            MessageBox("Please Select Relationship Status")
+            Exit Sub
+        End If
+
+        'If ddlBloodGrp.SelectedIndex = 0 Then
+        '    MessageBox("Please Select Blood Group")
+        '    Exit Sub
+        'End If
+
+        If ddlReligion.SelectedValue = "-Select-" Then
+            MessageBox("Please Select Religion")
+            Exit Sub
+        Else
+            BasicInfo.Religion = ddlReligion.SelectedValue
+        End If
+
+        'BasicInfo.Religion = ddlReligion.SelectedValue
+        BasicInfo.PermanentAddress = txtPerAddress.Text
+        BasicInfo.PreDistrict = ddlPreDistrict.SelectedValue
+        If ddlPreDistrict.SelectedItem.Text = "" Then
+            MessageBox("Please Select Present District")
+            Exit Sub
+        End If
+        BasicInfo.PreThana = ddlPreThana.SelectedValue
+        If ddlPreThana.SelectedItem.Text = "" Then
+            MessageBox("Please Select Present Thana\Upazilla")
+            Exit Sub
+        End If
+        BasicInfo.PresentAddress = txtPreAdd.Text
+        BasicInfo.PerDistrict = ddlperDistrict.SelectedValue
+        If ddlperDistrict.SelectedItem.Text = "" Then
+            MessageBox("Please Select Present District")
+            Exit Sub
+        End If
+        BasicInfo.PerThana = ddlPerThana.SelectedValue
+        If ddlPerThana.SelectedItem.Text = "" Then
+            MessageBox("Please Select Present Thana\Upazilla")
+            Exit Sub
+        End If
+        BasicInfo.HomePhoneNo = txtHomePhoneNo.Text
+        BasicInfo.MobileNumber = txtMobileNumber.Text
+        BasicInfo.OfficePhoneNo = txtOfficePhoneNo.Text
+        'BasicInfo.EMail = txtEMail.Text
+        BasicInfo.AltEMail = txtAlEmail.Text
+        BasicInfo.CareerObjective = txtCareerObjective.Text
+        BasicInfo.AboutYourself = txtAboutYrself.Text
+        BasicInfo.SpecilizedIn = txtSpecilizedIn.Text
+
+
+        If ddlRelStatus.SelectedItem.ToString = "Single" Then
+
+        End If
+
+
+        If txtyrOfExp.Text = "" Then
+            BasicInfo.YearOfExperience = 0
+        Else
+            BasicInfo.YearOfExperience = txtyrOfExp.Text
+        End If
+
+
+        If txtMonth.Text = "" Then
+            BasicInfo.ExpInMonth = 0
+        Else
+            BasicInfo.ExpInMonth = txtMonth.Text
+        End If
+
+
+        If txtPresentSalary.Text = "" Then
+            BasicInfo.PresentSalary = 0
+        Else
+            BasicInfo.PresentSalary = txtPresentSalary.Text
+        End If
+
+
+
+        If dtDrawnDate.Text = "" Then
+            BasicInfo.LastDrawnDate = "1911-01-01"
+        Else
+            BasicInfo.LastDrawnDate = dtDrawnDate.Text
+        End If
+
+        'If txtPresentSalary.Text = "" Then
+        '    BasicInfo.LastDrawnDate = "1911-01-01"
+        'End If
+
+        'BasicInfo.LastDrawnDate = dtDrawnDate.Text
+
+
+        'If txtExpectedSalary.Text = "" Then
+        '    BasicInfo.ExpectedSalary = 0
+        'Else
+        '    BasicInfo.ExpectedSalary = txtExpectedSalary.Text
+        'End If
+
+        If txtExpectedSalary.Text = "" Then
+            MessageBox("Please Give Expected Salary")
+            Exit Sub
+        Else
+            BasicInfo.ExpectedSalary = txtExpectedSalary.Text
+        End If
+
+        BasicInfo.LookingFor = ddlLookingFor.SelectedValue
+        BasicInfo.AvailableFor = ddlAvailableFor.SelectedValue
+        BasicInfo.PreferredJobLocation = ddlPreferredJobLocation.SelectedValue
+        If ddlPreferredJobLocation.SelectedItem.Text = "" Then
+            MessageBox("Please Select Preferred Job Location")
+            Exit Sub
+        End If
+        BasicInfo.EnglishProficiency = rblEnLagPro.SelectedValue
+        BasicInfo.ComputerLiteracy = rblComputerLiteracy.SelectedValue
+        BasicInfo.Employeer = txtEmployeer.Text
+
+        Dim DocumentInformation As String = ""
+        Dim dtLoanAccDocuments As DataTable = New DataTable()
+        dtLoanAccDocuments = Session("UserDocuments")
+
+        If hdFldChangeMadeToDocumentUploads.Value = "True" Then
+            '' Document Information
+            BasicInfo.IsChangeMadeToDocumentUploads = True
+            Dim DocumentInfo As clsDocumentList = New clsDocumentList()
+            For Each rw As DataRow In dtLoanAccDocuments.Rows
+                DocumentInfo.DocumentName = rw.Item("DocumentName")
+                DocumentInfo.FileName = rw.Item("FileName")
+                DocumentInfo.DocTypeID = rw.Item("DocTypeID")
+                DocumentInformation = DocumentInformation & DocumentInfo.DocumentName & "~" & DocumentInfo.FileName & "~" & DocumentInfo.DocTypeID & "~|"
+            Next
+            BasicInfo.Documents = DocumentInformation
+        Else
+            BasicInfo.Documents = ""
+        End If
+
+        If ddlLookingFor.SelectedIndex = 0 Then
+            MessageBox("Please Select Looking For")
+            Exit Sub
+        End If
+
+        If ddlAvailableFor.SelectedIndex = 0 Then
+            MessageBox("Please Select Available For")
+            Exit Sub
+        End If
+
+        Dim folder As String
+        Dim DocFileName As String = ""
+        Dim DocFileNameSign As String = ""
+        Dim DocExt As String
+        Dim AttachmentFileName As String
+        Dim Signature As String
+        Dim DocPrefix As String
+        Dim FileSize As Integer
+
+        If hpAttachment.NavigateUrl <> "" Then
+            DocFileName = Replace(hpAttachment.NavigateUrl, "~/attachments/", "")
+        End If
+
+        folder = Server.MapPath("~/Attachments/")
+        UserID = Session("LoginUserID")
+
+        If flAttachment.HasFile Then
+
+            FileSize = flAttachment.PostedFile.ContentLength()
+
+            If FileSize > 10485760 Then
+                MessageBox("File size should be within 10MB")
+                Exit Sub
+            End If
+
+            DocPrefix = Title.Replace(" ", "")
+
+            DocExt = System.IO.Path.GetExtension(flAttachment.FileName)
+            'DocFileName = "Candidate" & DocExt
+
+            If DocExt <> ".jpg" And DocExt = ".gif" And DocExt = ".png" Then
+                MessageBox("Select Image File Only")
+                Exit Sub
+            End If
+
+            DocFileName = "Photo" & "_" & CandidateName & "_" & DateTime.Now.ToString("ddMMyyHHmmss") & DocExt
+            AttachmentFileName = folder & DocFileName
+            flAttachment.SaveAs(AttachmentFileName)
+        End If
+
+
+
+
+
+        If hpSignature.NavigateUrl <> "" Then
+            DocFileNameSign = Replace(hpSignature.NavigateUrl, "~/attachments/", "")
+
+        End If
+
+        folder = Server.MapPath("~/Attachments/")
+        UserID = Session("LoginUserID")
+
+        If flSignature.HasFile Then
+
+            FileSize = flSignature.PostedFile.ContentLength()
+
+            If FileSize > 5242880 Then
+                MessageBox("File size should be within 5MB")
+                Exit Sub
+            End If
+
+            DocPrefix = Title.Replace(" ", "")
+
+            DocExt = System.IO.Path.GetExtension(flSignature.FileName)
+
+            If DocExt <> ".jpg" And DocExt = ".gif" And DocExt = ".png" Then
+                MessageBox("Select Image File Only")
+                Exit Sub
+            End If
+
+            DocFileNameSign = "Signature" & "_" & CandidateName & "_" & DateTime.Now.ToString("ddMMyyHHmmss") & DocExt
+            Signature = folder & DocFileNameSign
+            flSignature.SaveAs(Signature)
+        End If
+
+
+        If DocFileName = "" And imgValidation.ImageUrl = "~/Attachments/female_avatar.png" Then
+            MessageBox("Photo Required")
+            Exit Sub
+        End If
+
+
+        'CandidateID = BasicData.fnInsertBasicInfo(RegistrationID, UserID, BasicInfo, DocFileName, DocFileNameSign, BasicInfo.Documents)
+
+        If CandidateID <> "" Then
+            MessageBox("Inserted Successfully")
+            hdFldChangeMadeToDocumentUploads.Value = "False"
+            BasicInfo.IsChangeMadeToDocumentUploads = False
+            Session("CandidateID") = CandidateID
+
+
+            imgValidation.ImageUrl = "~/Attachments/" + DocFileName
+
+            If DocFileNameSign = "" Then
+                imgSignature.ImageUrl = "~/Attachments/signature.jpg"
+            Else
+                imgSignature.ImageUrl = "~/Attachments/" + DocFileNameSign
+            End If
+
+
+        Else
+            MessageBox("Error Found.")
+        End If
+
+    End Sub
+
+    Private Sub MessageBox(ByVal strMsg As String)
+        Dim lbl As New System.Web.UI.WebControls.Label
+        lbl.Text = "<script language='javascript'>" & Environment.NewLine _
+                   & "window.alert(" & "'" & strMsg & "'" & ")</script>"
+        Page.Controls.Add(lbl)
+    End Sub
+
+    Protected Function FormatAccountDocumentTable() As DataTable
+        Dim dt As DataTable = New DataTable()
+        dt.Columns.Add("DocTypeID", System.Type.GetType("System.String"))
+        dt.Columns.Add("DocTypeName", System.Type.GetType("System.String"))
+        dt.Columns.Add("DocumentName", System.Type.GetType("System.String"))
+        dt.Columns.Add("FileName", System.Type.GetType("System.String"))
+
+        Return dt
+    End Function
+
+    Protected Sub GetUserDocuments()
+
+    End Sub
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            Dim Message As String
+
+            Message = Request.QueryString("Message")
+
+            If Message <> "" Then
+                lblRedirectMsg.Text = Message
+            End If
+
+
+            Dim UserID As String
+            Dim UserName As String
+            Dim RegistrationID As String
+
+            lblNewDocumentType.Visible = False
+            btnCancelInsertNewDocumentType.Visible = False
+
+            ShowDocumentType()
+            ShowOccupationList()
+
+            hdFldChangeMadeToDocumentUploads.Value = ""
+            Dim dtUserDocuments As DataTable = New DataTable()
+            dtUserDocuments = FormatAccountDocumentTable()
+            Session("UserDocuments") = dtUserDocuments
+
+            Dim MobileNo As String = ""
+            Dim NID As String = ""
+
+            UserID = Session("LoginUserID")
+            UserName = Session("UserName")
+            'RegistrationID = Session("RegistrationID")
+            RegistrationID = Session("UniqueUserID")
+
+            ShowPrevUploadedDocumentInfo(Session("UniqueUserID"))
+
+            ddlRelStatus.DataTextField = "RelName"
+            ddlRelStatus.DataValueField = "RelationshipID"
+            ddlRelStatus.DataSourceID = "dsRelationStatus"
+            ddlRelStatus.DataBind()
+
+            If ddlRelStatus.Items.Count > 0 Then
+
+                If ddlRelStatus.SelectedItem.Text = "Single" Then
+                    txtSpouseName.Enabled = False
+                    ddlSpouseOccupation.Enabled = False
+                    txtSpouseName.Text = ""
+                    ddlSpouseOccupation.SelectedIndex = 0
+                Else
+                    txtSpouseName.Enabled = True
+                    ddlSpouseOccupation.Enabled = True
+                End If
+
+            End If
+
+            txtName.Text = UserName
+
+            txtyrOfExp.Text = "0"
+            txtMonth.Text = "0"
+
+            ddlRelStatus.DataBind()
+            dsRelationStatus.DataBind()
+            ddlRelStatus.Items.Insert(0, "--Select--")
+
+            'ddlBloodGrp.DataBind()
+            'ddlBloodGrp.DataBind()
+            'ddlBloodGrp.Items.Insert(0, "--Select--")
+
+            ddlAvailableFor.DataBind()
+            dsServiceType.DataBind()
+            ddlAvailableFor.Items.Insert(0, "--Select--")
+
+            ddlLookingFor.DataBind()
+            dsJobType.DataBind()
+            ddlLookingFor.Items.Insert(0, "--Select--")
+
+            Dim CandidateID As String
+
+            Dim count As Integer = Common.CandidateCount(UserID)
+
+            If count = 0 Then
+
+                BasicData.GetRegisteredInfo(UserID, MobileNo, NID)
+
+                txtMobileNumber.Text = MobileNo
+                txtNID.Text = NID
+
+                imgValidation.ImageUrl = "~/Attachments/female_avatar.png"
+                imgSignature.ImageUrl = "~/Attachments/signature.jpg"
+                Exit Sub
+            End If
+            Dim CandidateRegistrationID As String
+
+            CandidateID = Common.GetCandidateID(UserID)
+
+            Session("CandidateID") = CandidateID
+
+            Dim BasicInfo As New CanBasicInfo()
+
+            BasicInfo = BasicData.fnGetCandidateBasicInformation(UserID)
+
+            'txtName.Text = BasicInfo.Name
+            txtFatherName.Text = BasicInfo.FatherName
+            ddlFathersOccupation.SelectedValue = BasicInfo.FathersOccupation
+            txtMotherName.Text = BasicInfo.MotherName
+            ddlMotherOccupation.SelectedValue = BasicInfo.MothersOccupation
+            txtSpouseName.Text = BasicInfo.SpouseName
+            ddlSpouseOccupation.SelectedValue = BasicInfo.SpouseOccupation
+            txtNoChildren.Text = BasicInfo.NoOfChildrenAge
+            txtSibblingsInfo.Text = BasicInfo.SibblingsNameOccupation
+            rdbtnGender.SelectedValue = BasicInfo.Gender
+            txtNID.Text = BasicInfo.NIDNo
+            txtPassportNo.Text = BasicInfo.PassportNo
+            ddlNationality.SelectedValue = BasicInfo.Nationality
+            ddlReligion.SelectedValue = BasicInfo.Religion
+            txtPreAdd.Text = BasicInfo.PresentAddress
+            ddlPreDistrict.SelectedValue = BasicInfo.PreDistrict
+            ddlPreThana.SelectedValue = BasicInfo.PreThana
+            txtPerAddress.Text = BasicInfo.PermanentAddress
+            ddlperDistrict.SelectedValue = BasicInfo.PerDistrict
+            ddlPerThana.SelectedValue = BasicInfo.PerThana
+            txtHomePhoneNo.Text = BasicInfo.HomePhoneNo
+            txtMobileNumber.Text = BasicInfo.MobileNumber
+            txtOfficePhoneNo.Text = BasicInfo.OfficePhoneNo
+            txtAlEmail.Text = BasicInfo.AltEMail
+            txtCareerObjective.Text = BasicInfo.CareerObjective
+            'txtyrOfExp.Text = String.Format("{0:N2}", Convert.ToDouble(BasicInfo.YearOfExperience))
+            txtyrOfExp.Text = Convert.ToString(BasicInfo.YearOfExperience)
+            txtMonth.Text = Convert.ToString(BasicInfo.ExpInMonth)
+            txtPresentSalary.Text = String.Format("{0:N2}", BasicInfo.PresentSalary)
+
+            If BasicInfo.LastDrawnDate = "01 Jan 1911" Then
+                dtDrawnDate.Text = ""
+            Else
+                dtDrawnDate.Text = BasicInfo.LastDrawnDate
+            End If
+
+            txtEmployeer.Text = BasicInfo.Employeer
+            txtExpectedSalary.Text = String.Format("{0:N2}", BasicInfo.ExpectedSalary)
+            ddlLookingFor.SelectedValue = BasicInfo.LookingFor
+            ddlAvailableFor.SelectedValue = BasicInfo.AvailableFor
+            ddlPreferredJobLocation.SelectedValue = BasicInfo.PreferredJobLocation
+            rblEnLagPro.SelectedValue = BasicInfo.EnglishProficiency
+            rblComputerLiteracy.SelectedValue = BasicInfo.ComputerLiteracy
+            ddlRelStatus.SelectedValue = BasicInfo.RelationshipStatus
+            ddlBloodGrp.SelectedValue = BasicInfo.BloodGroupID
+            txtAboutYrself.Text = BasicInfo.AboutYourself
+            txtSpecilizedIn.Text = BasicInfo.SpecilizedIn
+
+
+            imgValidation.ImageUrl = "~/Attachments/" + BasicInfo.Attachment
+
+            imgSignature.ImageUrl = "~/Attachments/" + BasicInfo.Signature
+
+            hpAttachment.NavigateUrl = "~/attachments/" & BasicInfo.Attachment
+
+            hpSignature.NavigateUrl = "~/attachments/" & BasicInfo.Signature
+
+            If BasicInfo.Attachment = "" Then
+                imgValidation.ImageUrl = "~/Attachments/female_avatar.png"
+            End If
+            If BasicInfo.Signature = "" Then
+                imgSignature.ImageUrl = "~/Attachments/signature.jpg"
+            End If
+
+        End If
+
+    End Sub
+
+    Protected Sub ClearBasicInfo()
+        txtFatherName.Text = ""
+        txtMotherName.Text = ""
+        txtSpouseName.Text = ""
+        rdbtnGender.SelectedIndex = -1
+        txtNID.Text = ""
+        txtPassportNo.Text = ""
+        ddlNationality.SelectedIndex = -1
+        ddlReligion.SelectedIndex = -1
+        txtPreAdd.Text = ""
+        txtPerAddress.Text = ""
+        txtHomePhoneNo.Text = ""
+        txtMobileNumber.Text = ""
+        txtOfficePhoneNo.Text = ""
+        txtAlEmail.Text = ""
+        txtCareerObjective.Text = ""
+        txtyrOfExp.Text = "0"
+        txtMonth.Text = "0"
+        txtPresentSalary.Text = ""
+        txtExpectedSalary.Text = ""
+        ddlLookingFor.SelectedIndex = -1
+        ddlAvailableFor.SelectedIndex = -1
+        rblEnLagPro.SelectedIndex = -1
+        rblComputerLiteracy.SelectedIndex = -1
+        ddlBloodGrp.SelectedIndex = -1
+        ddlRelStatus.SelectedIndex = -1
+        txtAboutYrself.Text = ""
+        txtSpecilizedIn.Text = ""
+    End Sub
+
+    Protected Sub ddlRelStatus_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlRelStatus.SelectedIndexChanged
+        If ddlRelStatus.Items.Count > 0 Then
+
+            If ddlRelStatus.SelectedItem.Text = "Single" Then
+                txtSpouseName.Enabled = False
+                ddlSpouseOccupation.Enabled = False
+                txtSpouseName.Text = ""
+                ddlSpouseOccupation.SelectedIndex = 0
+            Else
+                txtSpouseName.Enabled = True
+                ddlSpouseOccupation.Enabled = True
+            End If
+
+        End If
+    End Sub
+
+    Protected Sub btnNewDocumentType_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnNewDocumentType.Click
+
+        Dim DocumentType As clsDocumentType = New clsDocumentType()
+
+        If btnNewDocumentType.Text = "..." Then
+            btnNewDocumentType.Text = "Insert"
+            lblNewDocumentType.Visible = True
+            btnNewDocumentType.ValidationGroup = "DocType"
+            btnCancelInsertNewDocumentType.Visible = True
+        Else
+            If txtNewDocumentType.Text = "" Then
+                MessageBox("InPut Document Type")
+            Else
+
+                If chkDocumentTypeIsMandatory.Checked = True Then
+                    DocumentType.IsMandatory = True
+                Else
+                    DocumentType.IsMandatory = False
+                End If
+
+                DocumentType.DocumentType = txtNewDocumentType.Text
+                DocumentType.IsActive = True
+                DocumentType.EntryBy = Session("LoginUserID")
+
+                Dim check As Integer = DocumentData.fnInsertDocumentType(DocumentType)
+
+                If check = 1 Then
+                    MessageBox("Inserted Successfully.")
+                    ShowDocumentType()
+                    txtNewDocumentType.Text = ""
+                    lblNewDocumentType.Visible = False
+                    btnNewDocumentType.Text = "..."
+                    btnNewDocumentType.ValidationGroup = ""
+                Else
+                    MessageBox("Error Found.")
+                End If
+
+            End If
+
+        End If
+    End Sub
+
+    Protected Sub btnCancelInsertNewDocumentType_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancelInsertNewDocumentType.Click
+        btnNewDocumentType.Text = "..."
+        lblNewDocumentType.Visible = False
+        btnCancelInsertNewDocumentType.Visible = False
+    End Sub
+
+    Protected Sub btnUploadDocument_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnUploadDocument.Click
+        Try
+            hdFldChangeMadeToDocumentUploads.Value = "True"
+
+            Dim dt As DataTable = GetUserDocumentData()
+            Session("UserDocuments") = dt
+
+            grdDocumentList.Caption = "::Uploaded Documents::"
+            grdDocumentList.DataSource = dt
+            grdDocumentList.DataBind()
+
+            GetRemainingMandatoryDocuments()
+            ClearDocumentsInformation()
+        Catch ex As Exception
+            MessageBox(ex.Message)
+        End Try
+    End Sub
+
+    Protected Function GetUserDocumentData() As DataTable
+
+        Dim folder As String = ""
+        Dim Title As String = ""
+        Dim DocExt As String = ""
+        Dim DocFullName As String = ""
+        Dim DocPrefix As String = ""
+        Dim FileSize As Integer = 0
+        Dim DocFileName As String = ""
+        If flupDocuments.HasFile Then
+
+            folder = Server.MapPath("~/Attachments/")
+
+            Title = txtDocumentName.Text
+
+            Title = Replace(Title, ".", "")
+
+            FileSize = flupDocuments.PostedFile.ContentLength()
+            If FileSize > 512000 Then
+                MessageBox("File size should be within 500KB")
+                Return Nothing
+            End If
+
+            DocPrefix = Title.Replace(" ", "")
+
+            DocExt = System.IO.Path.GetExtension(flupDocuments.FileName)
+            DocFileName = "Doc_" & DateTime.Now.ToString("ddMMyyHHmmss") & "_" & DocPrefix & DocExt
+            DocFullName = folder & DocFileName
+            flupDocuments.SaveAs(DocFullName)
+
+            Dim dtUserDocuments As DataTable = New DataTable()
+            dtUserDocuments = Session("UserDocuments")
+
+            Dim dr As DataRow
+            dr = dtUserDocuments.NewRow()
+            dr("DocTypeID") = drpDocumentType.SelectedValue
+            dr("DocTypeName") = drpDocumentType.SelectedItem
+            dr("DocumentName") = txtDocumentName.Text
+            dr("FileName") = DocFileName 'flupDocuments.PostedFile.FileName
+
+            dtUserDocuments.Rows.Add(dr)
+            dtUserDocuments.AcceptChanges()
+
+            Return dtUserDocuments
+
+        Else
+            MessageBox("Select A Document To Upload.")
+            Return Nothing
+        End If
+
+    End Function
+
+    Protected Sub btnUploadDocumentRefresh_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnUploadDocumentRefresh.Click
+        txtDocumentName.Text = ""
+        drpDocumentType.SelectedIndex = -1
+        lblNewDocumentType.Visible = False
+        btnNewDocumentType.Text = "..."
+        chkDocumentTypeIsMandatory.Checked = False
+    End Sub
+
+    Protected Sub GetRemainingMandatoryDocuments()
+        Try
+            grdRemainingDocuments.DataSource = ""
+            grdRemainingDocuments.DataBind()
+
+            Dim lblDocs As System.Web.UI.WebControls.Label = New Label
+            Dim DocTypeIDStr As String = ""
+            For Each row As GridViewRow In grdDocumentList.Rows
+                lblDocs = row.FindControl("lblDocTypeID")
+                DocTypeIDStr = DocTypeIDStr + "|" + lblDocs.Text + "|"
+            Next
+
+            grdRemainingDocuments.Caption = "::Remaining Mandatory Documents::"
+            grdRemainingDocuments.DataSource = DocumentListData.fnGetRemainingMandatoryDocuments(DocTypeIDStr)
+            grdRemainingDocuments.DataBind()
+        Catch ex As Exception
+            MessageBox(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub ShowDocumentType()
+        drpDocumentType.DataTextField = "DocumentType"
+        drpDocumentType.DataValueField = "DocTypeID"
+        drpDocumentType.DataSource = DocumentData.fnShowDocumentType()
+        drpDocumentType.DataBind()
+    End Sub
+
+    Protected Sub ClearDocumentsInformation()
+        txtDocumentName.Text = ""
+        drpDocumentType.SelectedIndex = -1
+    End Sub
+
+    Protected Sub ShowPrevUploadedDocumentInfo(ByVal UniqueUserID As String)
+
+        Dim dt As DataTable = DocumentListData.fnGetUserDocuments(UniqueUserID).Tables(0)
+        Session("UserDocuments") = dt
+
+        grdDocumentList.Caption = "::Uploaded Documents::"
+        grdDocumentList.DataSource = dt
+        grdDocumentList.DataBind()
+
+        GetRemainingMandatoryDocuments()
+        ClearDocumentsInformation()
+    End Sub
+
+    Protected Sub grdDocumentList_RowDeleting(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewDeleteEventArgs) Handles grdDocumentList.RowDeleting
+        hdFldChangeMadeToDocumentUploads.Value = "True"
+
+        Dim i As Integer
+        Dim dtUserDocuments As DataTable = New DataTable()
+
+        dtUserDocuments = Session("UserDocuments")
+
+        i = e.RowIndex
+
+        dtUserDocuments.Rows(i).Delete()
+        dtUserDocuments.AcceptChanges()
+        grdDocumentList.DataSource = dtUserDocuments
+        grdDocumentList.DataBind()
+
+        Session("UserDocuments") = dtUserDocuments
+        GetRemainingMandatoryDocuments()
+    End Sub
+
+    Protected Sub chkSamePreAdd_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkSamePreAdd.CheckedChanged
+        If chkSamePreAdd.Checked = True Then
+            txtPerAddress.Text = txtPreAdd.Text
+            ddlperDistrict.SelectedValue = ddlPreDistrict.SelectedValue
+            ddlPerThana.DataSourceID = "dsPerUpazilaName"
+            ddlPerThana.DataBind()
+            ddlPerThana.SelectedValue = ddlPreThana.SelectedValue
+        Else
+            txtPerAddress.Text = ""
+            ddlperDistrict.SelectedIndex = 0
+            ddlPerThana.SelectedIndex = 0
+        End If
+    End Sub
+
+    Protected Sub txtPreAdd_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtPreAdd.TextChanged
+        chkSamePreAdd.Checked = False
+    End Sub
+
+    Protected Sub ddlPreDistrict_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlPreDistrict.SelectedIndexChanged
+        chkSamePreAdd.Checked = False
+    End Sub
+
+    Protected Sub ddlPreThana_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles ddlPreThana.SelectedIndexChanged
+        chkSamePreAdd.Checked = False
+    End Sub
+
+    Protected Sub btnNextPage_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnNextPage.Click
+        Response.Redirect("CandidateEducationInfo.aspx")
+    End Sub
+
+
+    Protected Sub ShowOccupationList()
+        ddlFathersOccupation.DataTextField = "OccupationName"
+        ddlFathersOccupation.DataValueField = "OccupationID"
+        ddlFathersOccupation.DataSource = BasicData.fnGetOccupationList()
+        ddlFathersOccupation.DataBind()
+
+        ddlMotherOccupation.DataTextField = "OccupationName"
+        ddlMotherOccupation.DataValueField = "OccupationID"
+        ddlMotherOccupation.DataSource = BasicData.fnGetOccupationList()
+        ddlMotherOccupation.DataBind()
+
+        ddlSpouseOccupation.DataTextField = "OccupationName"
+        ddlSpouseOccupation.DataValueField = "OccupationID"
+        ddlSpouseOccupation.DataSource = BasicData.fnGetOccupationList()
+        ddlSpouseOccupation.DataBind()
+    End Sub
+
+   
+    'Protected Sub btnNextPage_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles btnNextPage.Click
+
+    'End Sub
+End Class

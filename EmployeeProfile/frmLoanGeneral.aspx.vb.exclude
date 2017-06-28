@@ -1,0 +1,489 @@
+﻿Imports System.Data
+
+Partial Class EmployeeProfile_frmLoanGeneral
+    Inherits System.Web.UI.Page
+
+    Dim EmployeeData As New clsEmpBasicProfileDataAccess()
+    Dim GenLoanData As New clsGeneralLoanDataAccess()
+    Dim AbatementRaioData As New clsAbatementRatioDataAccess()
+    Dim EmpLoanData As New clsEmpLoanAccountDataAccess()
+    Dim AmortizationData As New clsLoanAmortizationData()
+
+    Dim TotalPayment As Double = 0
+    Dim TotalPrinciplePayment As Double = 0
+    Dim TotalIntPayment As Double = 0
+    Dim TotalAbatement As Double = 0
+
+    Protected Sub getBasicProfileInfo(ByVal EmployeeId As String)
+        Dim EmpBasicProfile As New EmpBasicInfo()
+        EmpBasicProfile = EmployeeData.fnGetBasicProfile(EmployeeId)
+
+        Dim pnlEmpSummary As Panel
+        Master.FindControl("pnlEmpSummary")
+        pnlEmpSummary = Master.FindControl("pnlEmpSummary")
+
+        Dim lblEmployeeName, lblEmployeeID, lblOfficialDesignation, lblFunctionalDesignation, lblDepartment, lblSupervisorName, lblEmployeeType, lblServiceLength, lblLocation As Label
+        Dim imgEmployee As Image
+        Dim hpLnkCanProfile As New HyperLink
+
+        lblEmployeeName = pnlEmpSummary.FindControl("lblEmployeeName")
+        lblEmployeeID = pnlEmpSummary.FindControl("lblEmployeeID")
+        lblOfficialDesignation = pnlEmpSummary.FindControl("lblOfficialDesignation")
+        lblFunctionalDesignation = pnlEmpSummary.FindControl("lblFunctionalDesignation")
+        lblDepartment = pnlEmpSummary.FindControl("lblDepartment")
+        lblSupervisorName = pnlEmpSummary.FindControl("lblSupervisorName")
+        lblEmployeeType = pnlEmpSummary.FindControl("lblEmployeeType")
+        lblServiceLength = pnlEmpSummary.FindControl("lblServiceLength")
+        lblLocation = pnlEmpSummary.FindControl("lblLocation")
+        imgEmployee = pnlEmpSummary.FindControl("imgEmployee")
+        hpLnkCanProfile = pnlEmpSummary.FindControl("hpLnkCanProfile")
+
+        lblEmployeeName.Text = EmpBasicProfile.Name
+        lblEmployeeID.Text = EmpBasicProfile.EmpCode
+        lblOfficialDesignation.Text = EmpBasicProfile.OfficialDesignation
+        lblFunctionalDesignation.Text = EmpBasicProfile.FunctionalDesignation
+        lblDepartment.Text = EmpBasicProfile.DepartmentName
+        lblSupervisorName.Text = EmpBasicProfile.CurrentSupervisor
+        lblEmployeeType.Text = EmpBasicProfile.EmployeeTypeName
+        lblServiceLength.Text = EmpBasicProfile.ServiceLength
+        lblLocation.Text = EmpBasicProfile.ULCBranchName
+        hpLnkCanProfile.NavigateUrl = "../RecuitmentCVView.aspx?CandidateID=" + EmpBasicProfile.CandidateID
+
+        imgEmployee.ImageUrl = "~/Attachments/" + EmpBasicProfile.Attachment
+
+        'lblImg.Text = imgEmployee.ImageUrl
+    End Sub
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not IsPostBack Then
+            Dim ToWhomProShow As String = Session("ToWhomProShow")
+
+            ShowAbatementRatio()
+            getBasicProfileInfo(ToWhomProShow)
+            ShowGenLoanInfoByEmp(Session("ToWhomProShow"))
+
+            Dim dtAbatement As DataTable = New DataTable()
+            dtAbatement = FormatAbatementTable()
+
+            dtAbatement = AbatementRaioData.fnShowAbatementRatio().Tables(0)
+            Session("Abatement") = dtAbatement
+
+            grdGenLoanAbatement.Visible = False
+
+        End If
+    End Sub
+
+    Protected Sub ShowAbatementRatio()
+        grdGenLoanAbatement.DataSource = AbatementRaioData.fnShowAbatementRatio()
+        grdGenLoanAbatement.DataBind()
+    End Sub
+
+
+    Protected Sub btnAddGeneralLoan_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnAddGeneralLoan.Click
+
+        Dim folder As String = ""
+        Dim DocFileName As String = ""
+        Dim DocFileNameSign As String = ""
+        Dim DocExt As String = ""
+        Dim AttachmentFileName As String = ""
+        Dim DocPrefix As String = ""
+        Dim FileSize As Integer = 0
+
+        Dim GenLoan As New clsGeneralLoan()
+
+        GenLoan.EmployeeID = Session("ToWhomProShow")
+        GenLoan.LoanAmount = Convert.ToDouble(txtGeneralLoanAmount.Text)
+
+        If chkGeneralLoanIsInsuranceRequired.Checked = True Then
+            GenLoan.IsInsuranceRequired = True
+        Else
+            GenLoan.IsInsuranceRequired = False
+        End If
+
+        GenLoan.ReimbursementDate = Convert.ToDateTime(txtReimbursementDate.Text)
+        GenLoan.GenLoanType = drpGenLoanType.SelectedValue
+        GenLoan.Remarks = txtRemarksOnGeneralLoan.Text
+
+        folder = Server.MapPath("~/Attachments/")
+
+        If flupGeneralLoanAttachment.HasFile Then
+
+            FileSize = flupGeneralLoanAttachment.PostedFile.ContentLength()
+
+            If FileSize > 10485760 Then
+                MessageBox("File size should be within 10MB")
+                Exit Sub
+            End If
+
+            DocPrefix = Title.Replace(" ", "")
+            DocExt = System.IO.Path.GetExtension(flupGeneralLoanAttachment.FileName)
+            DocFileName = "General_Loan" & "_" & DateTime.Now.ToString("ddMMyyHHmmss") & DocExt
+            AttachmentFileName = folder & DocFileName
+            flupGeneralLoanAttachment.SaveAs(AttachmentFileName)
+            GenLoan.Attachment = DocFileName
+
+        Else
+            GenLoan.Attachment = ""
+        End If
+
+        GenLoan.EntryBy = Session("LoginUserID")
+
+        Dim Check As Integer = GenLoanData.fnInsertGeneralLoan(GenLoan)
+
+        If Check = 1 Then
+            MessageBox("General Loan Inserted.")
+            ClearFormGenLoanInfo()
+            ShowGenLoanInfoByEmp(Session("ToWhomProShow"))
+        Else
+            MessageBox("Error Found.")
+        End If
+
+    End Sub
+
+    Protected Sub ShowGenLoanInfoByEmp(ByVal EmployeeID As String)
+        grdExistingGeneralLoan.DataSource = GenLoanData.fnShowGenLoanInfoByEmp(EmployeeID)
+        grdExistingGeneralLoan.DataBind()
+    End Sub
+
+    Protected Sub ClearFormGenLoanInfo()
+        txtGeneralLoanAmount.Text = ""
+        txtRemarksOnGeneralLoan.Text = ""
+        chkGeneralLoanIsInsuranceRequired.Checked = False
+        drpGenLoanType.SelectedIndex = -1
+    End Sub
+
+    Private Sub MessageBox(ByVal strMsg As String)
+        Dim lbl As New System.Web.UI.WebControls.Label
+        lbl.Text = "<script language='javascript'>" & Environment.NewLine _
+                   & "window.alert(" & "'" & strMsg & "'" & ")</script>"
+        Page.Controls.Add(lbl)
+    End Sub
+
+    Protected Sub btnCancelToAddGeneralLoan_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancelToAddGeneralLoan.Click
+
+    End Sub
+
+    Protected Sub grdExistingGeneralLoan_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles grdExistingGeneralLoan.SelectedIndexChanged
+
+        Dim lblGenLoanID, lblLoanAmount, lblReimbursementDate, lblIsAmortized As New Label
+
+        lblIsAmortized = grdExistingGeneralLoan.SelectedRow.FindControl("lblIsAmortized")
+        lblLoanAmount = grdExistingGeneralLoan.SelectedRow.FindControl("lblLoanAmount")
+        lblReimbursementDate = grdExistingGeneralLoan.SelectedRow.FindControl("lblReimbursementDate")
+        lblGenLoanID = grdExistingGeneralLoan.SelectedRow.FindControl("lblGenLoanID")
+
+        hdFldGenLoanID.Value = lblGenLoanID.Text
+
+        If lblIsAmortized.Text = "YES" Then
+            pnlMakeGenLoanSchedule.Visible = False
+            pnlFinalizeGenLoanSchedule.Visible = False
+            GetAmortizationInfoByBenefitID(lblGenLoanID.Text)
+        Else
+            pnlMakeGenLoanSchedule.Visible = True
+            pnlFinalizeGenLoanSchedule.Visible = True
+            grdGenLoanSchedule.DataSource = ""
+            grdGenLoanSchedule.DataBind()
+        End If
+
+        txtGeneralAmortizationStartDate.Text = Convert.ToDateTime(lblReimbursementDate.Text).Date
+        txtGeneralLoanAmntSch.Text = Convert.ToDouble(lblLoanAmount.Text)
+
+        txtGeneralDepreciationYear.Text = "5"
+        txtGeneralLoanIntRate.Text = "17.00"
+
+    End Sub
+
+    Protected Sub btnFinalizeGenLoanAmortization_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnFinalizeGenLoanAmortization.Click
+
+        Dim Amortization As String = ""
+        Dim EmpLoan As New clsEmpLoanAccount()
+        Dim ToWhomProShow As String = Session("ToWhomProShow")
+
+        Dim dtGenLoanSchedule As DataTable = New DataTable()
+        dtGenLoanSchedule = FormatAmortizationTable()
+        If hdFldGenLoanID.Value = "" Then
+            MessageBox("Select Benefit from the List")
+            Exit Sub
+        End If
+
+        Try
+            EmpLoan.EmployeeID = ToWhomProShow
+            EmpLoan.BenefitID = hdFldGenLoanID.Value
+            EmpLoan.BenefitType = "General-" + drpGenLoanType.SelectedValue
+            EmpLoan.LoanAmount = Convert.ToDouble(txtGeneralLoanAmntSch.Text)
+            EmpLoan.Tenure = Convert.ToInt32(txtGeneralDepreciationYear.Text) * 12
+            EmpLoan.InterestRate = Convert.ToDouble(txtGeneralLoanIntRate.Text)
+            EmpLoan.ReimbursementDate = Convert.ToDateTime(txtGeneralAmortizationStartDate.Text)
+
+            If chkIsAdjustableFromSalary.Checked = True Then
+                EmpLoan.IsAdjustableFromSalary = True
+            Else
+                EmpLoan.IsAdjustableFromSalary = False
+            End If
+
+            If chkIsAbatementApplicable.Checked = True Then
+                EmpLoan.IsAbatementApplicable = True
+            Else
+                EmpLoan.IsAbatementApplicable = False
+            End If
+
+            If chkIsDepreciatePmntAutomatically.Checked = True Then
+                EmpLoan.IsDepreciatedAutomatically = True
+            Else
+                EmpLoan.IsDepreciatedAutomatically = False
+            End If
+
+            dtGenLoanSchedule = Session("GenLoanSchedule")
+            For Each rw As DataRow In dtGenLoanSchedule.Rows
+                Amortization = Amortization & rw.Item("PaymentDate") & "~" & rw.Item("PaymentAmount") & "~" & rw.Item("PrincipalPayment") & "~" & rw.Item("InterestPayment") & "~" & rw.Item("Abatement") & "~" & rw.Item("URPA") & "~|"
+            Next
+
+            EmpLoan.LoanStatus = "Active"
+            EmpLoan.Amortization = Amortization
+            EmpLoan.EntryBy = Session("LoginUserID")
+
+            Dim Check As Integer = EmpLoanData.fnInsertEmpLoanAccount(EmpLoan)
+
+            If Check = 1 Then
+                MessageBox("Successful.")
+                pnlMakeGenLoanSchedule.Visible = False
+                pnlFinalizeGenLoanSchedule.Visible = False
+                GetAmortizationInfoByBenefitID(hdFldGenLoanID.Value)
+            Else
+                MessageBox("Error Found.")
+            End If
+        Catch ex As Exception
+            MessageBox(ex.Message)
+        End Try
+
+    End Sub
+
+    Protected Sub GetAmortizationInfoByBenefitID(ByVal BenefitID As String)
+        grdGenLoanSchedule.DataSource = AmortizationData.fnGetAmortizationByBenefitID(BenefitID)
+        grdGenLoanSchedule.DataBind()
+    End Sub
+
+    Protected Function FormatAmortizationTable() As DataTable
+        Dim dt As DataTable = New DataTable()
+        dt.Columns.Add("PaymentDate", System.Type.GetType("System.DateTime"))
+        dt.Columns.Add("PaymentAmount", System.Type.GetType("System.Double"))
+        dt.Columns.Add("PrincipalPayment", System.Type.GetType("System.Double"))
+        dt.Columns.Add("InterestPayment", System.Type.GetType("System.Double"))
+        dt.Columns.Add("Abatement", System.Type.GetType("System.Double"))
+        dt.Columns.Add("URPA", System.Type.GetType("System.Double"))
+        Return dt
+    End Function
+
+    Protected Function FormatAbatementTable() As DataTable
+        Dim dt As DataTable = New DataTable()
+        dt.Columns.Add("AbatementMonth", System.Type.GetType("System.Decimal"))
+        dt.Columns.Add("RateOfAbatement", System.Type.GetType("System.Double"))
+        Return dt
+    End Function
+
+    Protected Function MakeSchedule(ByVal LoanAmount As Double, ByVal AmortizationStartDate As DateTime, ByVal InterestRate As Double, ByVal DepreciationYear As Integer, ByVal IsAbatementApplicable As Boolean) As DataTable
+        Dim dtGenLoanSchedule As DataTable = New DataTable()
+        dtGenLoanSchedule = FormatAmortizationTable()
+
+        Dim TotalAbatementPercentage As Double = 0
+        Dim PaymentAmount, PrincipalPayment, InterestPayment, Abatement, URPA, DisbursedAmount, URPAL As Double
+        PaymentAmount = 0
+        PrincipalPayment = 0
+        InterestPayment = 0
+        Abatement = 0
+        URPA = 0
+        URPAL = 0
+        DisbursedAmount = 0
+
+        Dim dtAbatement As DataTable = New DataTable()
+        dtAbatement = Session("Abatement")
+        URPA = LoanAmount
+        DisbursedAmount = LoanAmount
+
+        If IsAbatementApplicable = True Then
+
+            For Each rw As DataRow In dtAbatement.Rows
+                If Convert.ToInt32(rw.Item("AbatementMonth")) <= DepreciationYear * 12 Then
+                    TotalAbatementPercentage += rw.Item("RateOfAbatement")
+                End If
+            Next
+            LoanAmount = LoanAmount - (LoanAmount * TotalAbatementPercentage * 0.01)
+            URPAL = LoanAmount
+            For i As Integer = 1 To DepreciationYear * 12
+                Dim dr As DataRow
+                dr = dtGenLoanSchedule.NewRow()
+                AmortizationStartDate = AmortizationStartDate.AddMonths(1)
+                dr("PaymentDate") = AmortizationStartDate
+
+                PaymentAmount = Pmt((InterestRate / 12) * 0.01, DepreciationYear * 12, -LoanAmount, 0, DueDate.EndOfPeriod)
+                dr("PaymentAmount") = Math.Round(PaymentAmount, 2)
+
+                InterestPayment = URPAL * ((InterestRate * 0.01) / 12)
+                dr("InterestPayment") = Math.Round(InterestPayment, 2)
+
+                PrincipalPayment = PaymentAmount - InterestPayment
+                dr("PrincipalPayment") = Math.Round(PrincipalPayment, 2)
+
+                If i Mod 12 = 0 Then
+                    For Each rw As DataRow In dtAbatement.Rows
+                        If rw.Item("AbatementMonth") = i Then
+                            dr("Abatement") = Math.Round(Convert.ToDouble(rw.Item("RateOfAbatement")) * 0.01 * DisbursedAmount, 2)
+                            Abatement = Math.Round(Convert.ToDouble(rw.Item("RateOfAbatement")) * 0.01 * DisbursedAmount, 2)
+                        End If
+                    Next
+
+                Else
+                    dr("Abatement") = 0
+                    Abatement = 0
+                End If
+
+                URPA = URPA - PrincipalPayment - Abatement
+                dr("URPA") = Math.Round(URPA, 2)
+                URPAL = URPAL - PrincipalPayment
+                dtGenLoanSchedule.Rows.Add(dr)
+                dtGenLoanSchedule.AcceptChanges()
+
+            Next
+
+        Else '' EMI
+
+            If chkIsLinearAmortization.Checked = True Then
+                URPAL = LoanAmount
+                LoanAmount = LoanAmount + ((LoanAmount * InterestRate * 0.01) * DepreciationYear)
+                PaymentAmount = LoanAmount / (DepreciationYear * 12)
+
+                For i As Integer = 1 To DepreciationYear * 12
+                    Dim dr As DataRow
+                    dr = dtGenLoanSchedule.NewRow()
+                    AmortizationStartDate = AmortizationStartDate.AddMonths(1)
+                    dr("PaymentDate") = AmortizationStartDate
+
+                    dr("PaymentAmount") = Math.Round(PaymentAmount, 2)
+
+                    PrincipalPayment = URPAL / (DepreciationYear * 12)
+                    dr("PrincipalPayment") = Math.Round(PrincipalPayment, 2)
+
+                    InterestPayment = PaymentAmount - PrincipalPayment
+                    dr("InterestPayment") = Math.Round(InterestPayment, 2)
+
+
+                    dr("Abatement") = 0
+
+                    URPA = URPA - PrincipalPayment
+                    dr("URPA") = Math.Round(URPA, 2)
+
+                    dtGenLoanSchedule.Rows.Add(dr)
+                    dtGenLoanSchedule.AcceptChanges()
+
+                Next
+
+            Else
+                PaymentAmount = Pmt((InterestRate * 0.01) / 12, DepreciationYear * 12, -LoanAmount, 0, DueDate.EndOfPeriod)
+
+                For i As Integer = 1 To DepreciationYear * 12
+                    Dim dr As DataRow
+                    dr = dtGenLoanSchedule.NewRow()
+                    AmortizationStartDate = AmortizationStartDate.AddMonths(1)
+                    dr("PaymentDate") = AmortizationStartDate
+
+                    dr("PaymentAmount") = Math.Round(PaymentAmount, 2)
+
+                    InterestPayment = URPA * ((InterestRate * 0.01) / 12)
+                    dr("InterestPayment") = Math.Round(InterestPayment, 2)
+
+                    PrincipalPayment = PaymentAmount - InterestPayment
+                    dr("PrincipalPayment") = Math.Round(PrincipalPayment, 2)
+
+                    dr("Abatement") = 0
+
+                    URPA = URPA - PrincipalPayment
+                    dr("URPA") = Math.Round(URPA, 2)
+
+                    dtGenLoanSchedule.Rows.Add(dr)
+                    dtGenLoanSchedule.AcceptChanges()
+
+                Next
+            End If
+
+        End If
+
+        Return dtGenLoanSchedule
+
+    End Function
+
+    Protected Sub btnMakeGenLoanSchedule_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnMakeGenLoanSchedule.Click
+        Session("GenLoanSchedule") = ""
+
+        Dim dtGenLoanSchedule As DataTable = New DataTable()
+        dtGenLoanSchedule = FormatAmortizationTable()
+
+        Dim IsAbatementApplicable As Boolean
+
+        If chkIsAbatementApplicable.Checked = True Then
+            IsAbatementApplicable = True
+        Else
+            IsAbatementApplicable = False
+        End If
+        dtGenLoanSchedule = MakeSchedule(Convert.ToDouble(txtGeneralLoanAmntSch.Text), Convert.ToDateTime(txtGeneralAmortizationStartDate.Text), Convert.ToDouble(txtGeneralLoanIntRate.Text), Convert.ToInt32(txtGeneralDepreciationYear.Text), IsAbatementApplicable)
+        grdGenLoanSchedule.DataSource = dtGenLoanSchedule
+        grdGenLoanSchedule.DataBind()
+
+        Session("GenLoanSchedule") = dtGenLoanSchedule
+
+        btnFinalizeGenLoanAmortization.Enabled = True
+
+
+    End Sub
+
+    Protected Sub btnCancelGenLoanAmortization_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnCancelGenLoanAmortization.Click
+
+    End Sub
+
+    Protected Sub chkIsDepreciatePmntAutomatically_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkIsDepreciatePmntAutomatically.CheckedChanged
+        If chkIsDepreciatePmntAutomatically.Checked = True Then
+            chkIsAdjustableFromSalary.Checked = False
+            chkIsAdjustableFromSalary.Enabled = False
+        Else
+            chkIsAdjustableFromSalary.Enabled = True
+        End If
+    End Sub
+
+    Protected Sub chkIsAdjustableFromSalary_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkIsAdjustableFromSalary.CheckedChanged
+        If chkIsAdjustableFromSalary.Checked = True Then
+            chkIsDepreciatePmntAutomatically.Checked = False
+            chkIsDepreciatePmntAutomatically.Enabled = False
+        Else
+            chkIsDepreciatePmntAutomatically.Enabled = True
+        End If
+    End Sub
+
+    Protected Sub grdGenLoanSchedule_RowDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.GridViewRowEventArgs) Handles grdGenLoanSchedule.RowDataBound
+        If e.Row.RowType = DataControlRowType.DataRow Then
+            Dim lblPaymentAmount As Label = CType(e.Row.FindControl("lblPaymentAmount"), Label)
+            Dim lblPrincipalPayment As Label = CType(e.Row.FindControl("lblPrincipalPayment"), Label)
+            Dim lblInterestPayment As Label = CType(e.Row.FindControl("lblInterestPayment"), Label)
+            Dim lblAbatement As Label = CType(e.Row.FindControl("lblAbatement"), Label)
+
+            TotalPayment = TotalPayment + Convert.ToDouble(lblPaymentAmount.Text)
+            TotalPrinciplePayment = TotalPrinciplePayment + Convert.ToDouble(lblPrincipalPayment.Text)
+            TotalIntPayment = TotalIntPayment + Convert.ToDouble(lblInterestPayment.Text)
+            TotalAbatement += Convert.ToDouble(lblAbatement.Text)
+        End If
+
+        If e.Row.RowType = DataControlRowType.Footer Then
+            e.Row.Cells(2).Text = String.Format("{0:n2}", Math.Round(TotalPayment, 2))
+            e.Row.Cells(3).Text = String.Format("{0:n2}", Math.Round(TotalPrinciplePayment, 2))
+            e.Row.Cells(4).Text = String.Format("{0:n2}", Math.Round(TotalIntPayment, 2))
+            e.Row.Cells(5).Text = String.Format("{0:n2}", Math.Round(TotalAbatement, 2))
+        End If
+    End Sub
+
+    Protected Sub chkIsAbatementApplicable_CheckedChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles chkIsAbatementApplicable.CheckedChanged
+        If chkIsAbatementApplicable.Checked = True Then
+            grdGenLoanAbatement.Visible = True
+        Else
+            grdGenLoanAbatement.Visible = False
+        End If
+    End Sub
+
+End Class

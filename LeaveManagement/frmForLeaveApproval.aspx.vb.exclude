@@ -1,0 +1,91 @@
+﻿
+Partial Class LeaveManagement_frmForLeaveApproval
+    Inherits System.Web.UI.Page
+
+    Dim LeaveData As New clsLeaveRequestDataAccess()
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+
+        If Session("UserName") = "" Or Session("UniqueUserID") = "" Then
+            Response.Redirect("~/frmHRMLogin.aspx")
+        End If
+
+        If Not IsPostBack Then
+            Dim EmployeeID As String
+            EmployeeID = Session("EmployeeID")
+
+            grdLeave.DataSource = LeaveData.fnGetLeaveRequestForApproval(EmployeeID, "ForApproval")
+            grdLeave.DataBind()
+
+            If grdLeave.Rows.Count = 0 Then
+                btnApproved.Enabled = False
+                btnReject.Enabled = False
+            End If
+        End If
+    End Sub
+
+    Protected Sub btnReject_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnReject.Click
+        Dim chk As System.Web.UI.WebControls.CheckBox
+        Dim lblLeaveRequestID As New System.Web.UI.WebControls.Label()
+
+        Dim LeaveRequestID As String
+        Dim EmployeeID As String
+        EmployeeID = Session("EmployeeID")
+
+
+        For Each rw As GridViewRow In grdLeave.Rows
+            chk = rw.FindControl("chkSelect")
+            If chk.Checked = True Then
+                lblLeaveRequestID = rw.FindControl("lblLeaveRequestID")
+                LeaveRequestID = lblLeaveRequestID.Text
+
+                LeaveData.ChangeApplicationStatus(LeaveRequestID, "Rejected", EmployeeID)
+            End If
+        Next
+
+        grdLeave.DataSource = LeaveData.fnGetLeaveRequestForApproval(EmployeeID, "ForApproval")
+        grdLeave.DataBind()
+        If grdLeave.Rows.Count = 0 Then
+            btnApproved.Enabled = False
+            btnReject.Enabled = False
+        End If
+    End Sub
+
+    Protected Sub btnApproved_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnApproved.Click
+        Dim chk As System.Web.UI.WebControls.CheckBox
+        Dim check As Integer = 0
+        Dim LeaveRequestID As String
+        Dim lblLeaveRequestID As New System.Web.UI.WebControls.Label()
+        Dim ApproverID As String = Session("EmployeeID")
+
+        For Each rw As GridViewRow In grdLeave.Rows
+            chk = rw.FindControl("chkSelect")
+            If chk.Checked = True Then
+                lblLeaveRequestID = rw.FindControl("lblLeaveRequestID")
+                LeaveRequestID = lblLeaveRequestID.Text
+
+                check = LeaveData.ChangeApplicationStatus(LeaveRequestID, "Approved", ApproverID)
+                If check = 1 Then
+                    MessageBox("Approved Successfully.")
+                End If
+            End If
+        Next
+
+        grdLeave.DataSource = LeaveData.fnGetLeaveRequestForApproval(ApproverID, "ForApproval")
+        grdLeave.DataBind()
+
+        If grdLeave.Rows.Count = 0 Then
+            btnApproved.Enabled = False
+            btnReject.Enabled = False
+        End If
+    End Sub
+
+    Private Sub MessageBox(ByVal strMsg As String)
+        Dim lbl As New System.Web.UI.WebControls.Label
+        lbl.Text = "<script language='javascript'>" & Environment.NewLine _
+                   & "window.alert(" & "'" & strMsg & "'" & ")</script>"
+        Page.Controls.Add(lbl)
+    End Sub
+
+
+End Class

@@ -1,0 +1,12 @@
+--- Add code below in webconfig.--------------
+ <system.web>
+      <authorization>
+        <allow users="*"/>
+      </authorization>
+   </system.web>
+
+
+---- Permit IIS users in Sources/Code.
+
+-- Permit IIS users in Attachment directory.
+

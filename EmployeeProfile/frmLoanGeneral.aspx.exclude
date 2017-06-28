@@ -1,0 +1,569 @@
+﻿<%@ Page Language="VB" MasterPageFile="~/EmployeeProfile/MasterEmpProfile.master"
+    AutoEventWireup="false" CodeFile="frmLoanGeneral.aspx.vb" Inherits="EmployeeProfile_frmLoanGeneral"
+    Title=".:HRM:Loan Against PF:." %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <table style="width: 100%;">
+        <tr>
+            <td>
+            </td>
+            <td>
+                <asp:Panel ID="pnlPFLoanMaster" runat="server" Width="100%" SkinID="pnlInner">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td>
+                                <div class="widgettitle">
+                                    General Loan
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                </asp:ScriptManager>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div style="max-height: 200px; max-width: 100%; overflow: auto">
+                                    <asp:GridView ID="grdExistingGeneralLoan" runat="server" AutoGenerateColumns="False"
+                                        CssClass="mGrid">
+                                        <Columns>
+                                            <asp:CommandField HeaderText="Select" ShowSelectButton="True" />
+                                            <asp:TemplateField HeaderText="GenLoanID" Visible="False">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblGenLoanID" runat="server" Text='<%# Bind("GenLoanID") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="EmployeeID" Visible="False">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label2" runat="server" Text='<%# Bind("EmployeeID") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Loan Amount">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblLoanAmount" runat="server" Text='<%# Bind("LoanAmount","{0:N2}") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Reimbursement Date">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblReimbursementDate" runat="server" Text='<%# Bind("ReimbursementDate") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Loan Type">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label5" runat="server" Text='<%# Bind("GenLoanType") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Insurance Required">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label6" runat="server" Text='<%# Bind("IsInsuranceRequired") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Attachment">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label7" runat="server" Text='<%# Bind("Attachment") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Amortized">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="lblIsAmortized" runat="server" Text='<%# Bind("IsAmortized") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Amortization Date">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label4" runat="server" Text='<%# Bind("AmortizationDate") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="Remarks">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label8" runat="server" Text='<%# Bind("Remarks") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:TemplateField HeaderText="EntryBy">
+                                                <ItemTemplate>
+                                                    <asp:Label ID="Label9" runat="server" Text='<%# Bind("EntryBy") %>'></asp:Label>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            <asp:HiddenField ID="hdFldGenLoanID" runat="server" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td valign="top">
+                                            <cc1:TabContainer ID="tabPFLoanComponents" CssClass="MyTabStyle" runat="server" ActiveTabIndex="1"
+                                                AutoPostBack="True" Width="100%">
+                                                <cc1:TabPanel ID="tabPnlAddPFLoan" runat="server" HeaderText="Vehicle">
+                                                    <HeaderTemplate>
+                                                        <table width="100%">
+                                                            <tr align="left">
+                                                                <td align="left" valign="top">
+                                                                    <img src="../icons/icons/providentfund.jpg" style="max-height: 30px; max-width: 30px" />
+                                                                </td>
+                                                                <td align="left" valign="top">
+                                                                    <b>ADD PF Loan</b>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ContentTemplate>
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlPFLoan" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr align="left">
+                                                                                <td colspan="6">
+                                                                                    <div class="widgettitle">
+                                                                                        ADD General Loan</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr align="left">
+                                                                                <td style="width: 20px">
+                                                                                </td>
+                                                                                <td style="width: 150px">
+                                                                                </td>
+                                                                                <td style="width: 200px">
+                                                                                </td>
+                                                                                <td style="width: 20px">
+                                                                                </td>
+                                                                                <td style="width: 150px">
+                                                                                    &#160;&#160;
+                                                                                </td>
+                                                                                <td style="width: 200px">
+                                                                                    &#160;&#160;
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Loan Amount
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtGeneralLoanAmount" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>&#160;<asp:RequiredFieldValidator
+                                                                                        ID="reqFldGeneralLoanAmount" runat="server" ControlToValidate="txtGeneralLoanAmount"
+                                                                                        Display="None" ErrorMessage="Required: Loan Amount" ValidationGroup="AddGeneralLoan"></asp:RequiredFieldValidator>
+                                                                                    <cc1:ValidatorCalloutExtender ID="reqFldGeneralLoanAmount_ValidatorCalloutExtender"
+                                                                                        runat="server" CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle"
+                                                                                        Enabled="True" TargetControlID="reqFldGeneralLoanAmount" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                    </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Reimbursement Date
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtReimbursementDate" runat="server" CssClass="InputTxtBox" Width="200px"></asp:TextBox>
+                                                                                    <cc1:CalendarExtender ID="txtReimbursementDate_CalendarExtender" runat="server" Enabled="True"
+                                                                                        TargetControlID="txtReimbursementDate">
+                                                                                    </cc1:CalendarExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Attachment
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:FileUpload ID="flupGeneralLoanAttachment" runat="server" Width="200px" /><asp:LinkButton
+                                                                                        ID="lnkBtnVehicleAttachment" runat="server">Attachment</asp:LinkButton>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    Loan Type
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:DropDownList ID="drpGenLoanType" runat="server" CssClass="InputTxtBox" Width="200px">
+                                                                                        <asp:ListItem>Loan Against PF</asp:ListItem>
+                                                                                        <asp:ListItem>Loan Against Welfare Fund</asp:ListItem>
+                                                                                    </asp:DropDownList>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Insurence Required
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkGeneralLoanIsInsuranceRequired" runat="server" Text="Yes" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Remarks
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtRemarksOnGeneralLoan" runat="server" CssClass="InputTxtBox" Height="50px"
+                                                                                        TextMode="MultiLine" Width="200px"></asp:TextBox>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Button ID="btnAddGeneralLoan" runat="server" CssClass="DButton" Text="ADD General Loan"
+                                                                                        ValidationGroup="AddGeneralLoan" />&#160;<asp:Button ID="btnCancelToAddGeneralLoan"
+                                                                                            runat="server" CssClass="DButton" Text="Cancel" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:RequiredFieldValidator ID="reqFldRemarksOnGeneralLoan" runat="server" ControlToValidate="txtRemarksOnGeneralLoan"
+                                                                                        Display="None" ErrorMessage="Required: Remarks" ValidationGroup="AddGeneralLoan"></asp:RequiredFieldValidator><cc1:ValidatorCalloutExtender
+                                                                                            ID="reqFldRemarksOnGeneralLoan_ValidatorCalloutExtender" runat="server" CloseImageUrl="~/Sources/images/valClose.png"
+                                                                                            CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldRemarksOnGeneralLoan"
+                                                                                            WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                        </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </cc1:TabPanel>
+                                                <cc1:TabPanel ID="tablPnlVehicleAmortization" runat="server" HeaderText="Vehicle">
+                                                    <HeaderTemplate>
+                                                        <table width="100%">
+                                                            <tr align="left">
+                                                                <td align="left" valign="top">
+                                                                    <img src="../icons/icons/schedule.png" style="max-height: 30px; max-width: 30px" />
+                                                                </td>
+                                                                <td align="left" valign="top">
+                                                                    <b>Amortization</b>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </HeaderTemplate>
+                                                    <ContentTemplate>
+                                                        <table width="100%">
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlMakeGenLoanSchedule" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr>
+                                                                                <td colspan="5">
+                                                                                    <div class="widgettitle">
+                                                                                        Vehicle Loan Amortization</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Loan Amount
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtGeneralLoanAmntSch" runat="server" CssClass="InputTxtBox" 
+                                                                                        ReadOnly="True"></asp:TextBox>
+                                                                                    &#160;&#160;<asp:RequiredFieldValidator ID="reqFldVehicleLoanAmntSch" runat="server"
+                                                                                        ControlToValidate="txtGeneralLoanAmntSch" Display="None" ErrorMessage="Required: Amortization Amount"
+                                                                                        ValidationGroup="Amortization"></asp:RequiredFieldValidator>
+                                                                                    <cc1:ValidatorCalloutExtender ID="valCallreqFldVehicleLoanAmntSch0" runat="server"
+                                                                                        CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle" Enabled="True"
+                                                                                        TargetControlID="reqFldVehicleLoanAmntSch" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                    </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Depreciation Year/Tenure
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtGeneralDepreciationYear" runat="server" CssClass="InputTxtBox"
+                                                                                        Width="100px"></asp:TextBox>
+                                                                                    &#160;&#160;<asp:RequiredFieldValidator ID="reqFldGeneralDepreciationYear" runat="server"
+                                                                                        ControlToValidate="txtGeneralDepreciationYear" Display="None" ErrorMessage="Required: Depreciation Year"
+                                                                                        ValidationGroup="Amortization"></asp:RequiredFieldValidator>
+                                                                                    <cc1:ValidatorCalloutExtender ID="reqFldGeneralDepreciationYear_ValidatorCalloutExtender"
+                                                                                        runat="server" CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle"
+                                                                                        Enabled="True" TargetControlID="reqFldGeneralDepreciationYear" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                    </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Adjustable From Salary
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsAdjustableFromSalary" runat="server" AutoPostBack="True" Text="Yes" />
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Interest Rate
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtGeneralLoanIntRate" runat="server" CssClass="InputTxtBox" Width="100px"></asp:TextBox>
+                                                                                    &#160;&#160;<asp:RequiredFieldValidator ID="reqFldGeneralLoanIntRate" runat="server"
+                                                                                        ControlToValidate="txtGeneralLoanIntRate" Display="None" ErrorMessage="Required: Interest Rate"
+                                                                                        ValidationGroup="Amortization"></asp:RequiredFieldValidator>
+                                                                                    <cc1:ValidatorCalloutExtender ID="reqFldGeneralLoanIntRate_ValidatorCalloutExtender"
+                                                                                        runat="server" CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle"
+                                                                                        Enabled="True" TargetControlID="reqFldGeneralLoanIntRate" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                    </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Abatement Applicable
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsAbatementApplicable" runat="server" AutoPostBack="True" Text="Yes" />
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Reimbursement Date
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:TextBox ID="txtGeneralAmortizationStartDate" runat="server" CssClass="InputTxtBox"
+                                                                                        Width="100px" ReadOnly="True"></asp:TextBox>
+                                                                                    <cc1:CalendarExtender ID="txtGeneralAmortizationStartDate_CalendarExtender" runat="server"
+                                                                                        Enabled="True" TargetControlID="txtGeneralAmortizationStartDate">
+                                                                                    </cc1:CalendarExtender>
+                                                                                    <asp:RequiredFieldValidator ID="reqFldGenLoanReimbursementDate" runat="server" ControlToValidate="txtGeneralAmortizationStartDate"
+                                                                                        Display="None" ErrorMessage="Required: Amortization Start Date" ValidationGroup="Amortization"></asp:RequiredFieldValidator>
+                                                                                    <cc1:ValidatorCalloutExtender ID="reqFldGenLoanReimbursementDate_ValidatorCalloutExtender"
+                                                                                        runat="server" CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle"
+                                                                                        Enabled="True" TargetControlID="reqFldGenLoanReimbursementDate" WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                                                                    </cc1:ValidatorCalloutExtender>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Depreciate Payment
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsDepreciatePmntAutomatically" runat="server" AutoPostBack="True"
+                                                                                        Text="Yes" />
+                                                                                </td>
+                                                                                <td class="label">
+                                                                                    Linear Amortization
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:CheckBox ID="chkIsLinearAmortization" runat="server" Text="Yes" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <asp:Button ID="btnMakeGenLoanSchedule" runat="server" CssClass="DButton" Text="Show Schedule"
+                                                                                        ValidationGroup="Amortization" />
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlShowVehicleSchedule" runat="server" SkinID="pnlInner">
+                                                                        <table style="width: 100%;">
+                                                                            <tr>
+                                                                                <td colspan="2">
+                                                                                    <div class="widgettitle">
+                                                                                        Amortization</div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td valign="top">
+                                                                                    <div style="max-width: 900px; max-height: 200px; overflow: auto">
+                                                                                        <asp:GridView ID="grdGenLoanSchedule" runat="server" AutoGenerateColumns="False"
+                                                                                            CssClass="mGrid" ShowFooter="True">
+                                                                                            <Columns>
+                                                                                                <asp:TemplateField HeaderText="SL">
+                                                                                                    <ItemTemplate>
+                                                                                                        <b></b>
+                                                                                                    </ItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Payment Date">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label18" runat="server" Text='<%# Bind("PaymentDate", "{0:d}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox18" runat="server" Text='<%# Bind("PaymentDate") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Payment Amount">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblPaymentAmount" runat="server" Text='<%# Bind("PaymentAmount", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox19" runat="server" Text='<%# Bind("PaymentAmount","{0:N2}") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Principal Payment">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblPrincipalPayment" runat="server" Text='<%# Bind("PrincipalPayment", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox20" runat="server" Text='<%# Bind("PrincipalPayment") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Interest Payment">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblInterestPayment" runat="server" Text='<%# Bind("InterestPayment", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox21" runat="server" Text='<%# Bind("InterestPayment") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Abatement">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="lblAbatement" runat="server" Text='<%# Bind("Abatement") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox22" runat="server" Text='<%# Bind("Abatement") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="URPA">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label19" runat="server" Text='<%# Bind("URPA", "{0:N2}") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox23" runat="server" Text='<%# Bind("URPA", "{0:N2}") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                            </Columns>
+                                                                                        </asp:GridView>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td valign="top">
+                                                                                    <div style="max-height: 200px; max-width: 200px; overflow: auto">
+                                                                                        <asp:GridView ID="grdGenLoanAbatement" runat="server" AutoGenerateColumns="False"
+                                                                                            CssClass="mGrid" ShowFooter="True">
+                                                                                            <Columns>
+                                                                                                <asp:TemplateField HeaderText="Month">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label1" runat="server" Text='<%# Bind("AbatementMonth") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox24" runat="server" Text='<%# Bind("AbatementMonth") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                                <asp:TemplateField HeaderText="Rate Of Abatement">
+                                                                                                    <ItemTemplate>
+                                                                                                        <asp:Label ID="Label20" runat="server" Text='<%# Bind("RateOfAbatement") %>'></asp:Label>
+                                                                                                    </ItemTemplate>
+                                                                                                    <EditItemTemplate>
+                                                                                                        <asp:TextBox ID="TextBox25" runat="server" Text='<%# Bind("RateOfAbatement") %>'></asp:TextBox>
+                                                                                                    </EditItemTemplate>
+                                                                                                </asp:TemplateField>
+                                                                                            </Columns>
+                                                                                        </asp:GridView>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                </td>
+                                                                                <td>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <asp:Panel ID="pnlFinalizeGenLoanSchedule" runat="server" SkinID="pnlInner">
+                                                                        <table width="100%">
+                                                                            <tr>
+                                                                                <td align="center">
+                                                                                    <asp:Button ID="btnFinalizeGenLoanAmortization" runat="server" CssClass="DButton"
+                                                                                        Enabled="False" OnClientClick="if (!confirm('Are you Sure to Finalize The Schedule ?')) return false"
+                                                                                        Text="Finalize Amortization" ValidationGroup="Amortization" />
+                                                                                    <asp:Button ID="btnCancelGenLoanAmortization" runat="server" CssClass="DButton" Text="Cancel" />
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </asp:Panel>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </ContentTemplate>
+                                                </cc1:TabPanel>
+                                            </cc1:TabContainer>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
